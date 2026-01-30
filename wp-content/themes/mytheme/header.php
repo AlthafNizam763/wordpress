@@ -23,7 +23,7 @@
 
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="<?php echo site_url('/about'); ?>">About Us</a></li>
                     <li><a href="#services">Team Race</a></li>
                     <li><a href="#case">Action Plan</a></li>
                     <li><a href="#case">Meet Our Changemakers</a></li>
