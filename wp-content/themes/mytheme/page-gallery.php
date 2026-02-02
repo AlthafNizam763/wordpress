@@ -1,11 +1,10 @@
 <?php
 /* Template Name: Gallery */
 get_header(); ?>
-
-<section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="page-header"
+    style="background: url('<?php echo get_template_directory_uri(); ?>/images/gallerybg.png') no-repeat center center; background-size: cover; padding: 60px 0; text-align: center;">
     <div class="container">
-        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase;">Gallery</h1>
-        <p style="color: #666; font-size: 18px;">A visual journey through our events and activities.</p>
+        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #080808ff;">Gallery</h1>
     </div>
 </section>
 

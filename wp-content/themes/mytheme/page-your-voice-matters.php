@@ -5,9 +5,9 @@ get_header(); ?>
 <section class="page-header"
     style="background: url('<?php echo get_template_directory_uri(); ?>/images/contactus.gif') no-repeat center center; background-size: cover; padding: 60px 0; text-align: center;">
     <div class="container">
-        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #11823b;">Your Voice Matters
+        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Your Voice
+            Matters
         </h1>
-        <p style="color: #666; font-size: 18px; color: #11823b;">Share your thoughts, stories, and feedback with us.</p>
     </div>
 </section>
 

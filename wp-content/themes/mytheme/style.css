@@ -743,3 +743,11 @@ footer {
         transform: translateY(-50%) rotate(0);
     }
 }
+
+.oorjjakiran {
+    width: 20%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

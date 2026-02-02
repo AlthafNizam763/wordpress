@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> Alisa Theme. All rights reserved.</p>
+            <p>&copy; <?php echo date('Y'); ?> Race. All rights reserved.</p>
         </div>
     </div>
 </footer>
