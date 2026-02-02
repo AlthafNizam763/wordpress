@@ -22,13 +22,26 @@
                 </div>
 
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="<?php echo site_url('/about'); ?>">About Us</a></li>
-                    <li><a href="#services">Team Race</a></li>
-                    <li><a href="#case">Action Plan</a></li>
-                    <li><a href="#case">Meet Our Changemakers</a></li>
-                    <li><a href="#blog">Gallery</a></li>
-                    <li><a href="#contact">Your Voice Matters</a></li>
+                    <li><a href="<?php echo home_url('/#home'); ?>">Home</a></li>
+                    <li><a href="<?php $p = get_page_by_path('about');
+                    echo $p ? get_permalink($p) : home_url('/about'); ?>">About
+                            Us</a></li>
+                    <li><a href="<?php echo home_url('/team-race'); ?>">Team Race</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Action Plan</a>
+                        <ul class="dropdown">
+                            <li><a href="<?php echo home_url('/ongoing-events'); ?>">Ongoing & Past Events</a>
+                    </li>
+                    <li><a href="<?php echo home_url('/courses-training'); ?>">Courses & Training</a></li>
+                    <li><a href="<?php echo home_url('/projects'); ?>">Projects</a></li>
+                    <li><a href="<?php echo home_url('/day-observations'); ?>">Day Observations</a></li>
+                    <li><a href="<?php echo home_url('/collaborations'); ?>">Collaborations</a></li>
+                    <li><a href="<?php echo home_url('/features-news'); ?>">Features in News</a></li>
+                </ul>
+                </li>
+                <li><a href="<?php echo home_url('/meet-our-changemakers'); ?>">Meet Our Changemakers</a></li>
+                <li><a href="<?php echo home_url('/gallery'); ?>">Gallery</a></li>
+                <li><a href="<?php echo home_url('/your-voice-matters'); ?>">Your Voice Matters</a></li>
                 </ul>
                 <!-- <div class="header-actions">
                     <a href="#search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"

@@ -3,7 +3,8 @@
 function race_theme_scripts()
 {
     // Enqueue Styles
-    wp_enqueue_style('race-style', get_stylesheet_uri());
+    wp_enqueue_style('race-style', get_stylesheet_uri(), array(), time());
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 }
 add_action('wp_enqueue_scripts', 'race_theme_scripts');
 

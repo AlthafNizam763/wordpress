@@ -168,19 +168,24 @@
 </section>
 <section class="container content-split">
     <div class="text-content">
-        <div style="width: 50px; height: 50px; background: #ddd; margin-bottom: 20px;"></div>
+        <div class="icon-wrapper"><i class="fas fa-chalkboard-user"></i></div>
         <h3>Programs & Training</h3>
         <p style="margin-bottom: 20px; color: #666;">Exhibits a collection of Programs and projects that can foster the
             determinations of every individuals.</p>
     </div>
-    <div class="image-content"></div>
+    <div class="">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/ProgramsTraining.jpeg" alt="Programs & Training">
+    </div>
 </section>
 
 <!-- Split Content 2 -->
 <section class="container content-split">
-    <div class="image-content"></div>
+    <div class="">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/ResearchDevelopment.jpeg"
+            alt="Research & Development">
+    </div>
     <div class="text-content">
-        <div style="width: 50px; height: 50px; background: #ddd; margin-bottom: 20px;"></div>
+        <div class="icon-wrapper"><i class="fas fa-flask"></i></div>
         <h3>Research & Development</h3>
         <p style="margin-bottom: 20px; color: #666;">RACE educates the public, fosters development, and gives people the
             tools they need to become trailblazers.</p>
@@ -190,12 +195,15 @@
 <!-- Split Content 3 -->
 <section class="container content-split">
     <div class="text-content">
-        <div style="width: 50px; height: 50px; background: #ddd; margin-bottom: 20px;"></div>
+        <div class="icon-wrapper"><i class="fas fa-users"></i></div>
         <h3>Project & Collaboration</h3>
         <p style="margin-bottom: 20px; color: #666;">Each individual contributes effectively to shared goals, fostering
             personal growth and organizational success through collaborative teamwork.</p>
     </div>
-    <div class="image-content"></div>
+    <div class="">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/ProjectCollaboration.jpeg"
+            alt="Project & Collaboration">
+    </div>
 </section>
 
 <!-- Brands/Logos -->

@@ -3,10 +3,12 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="footer-logo">
-                    <h3 style="font-family: serif; color: white; font-size: 24px; margin-bottom: 20px;">Alisa</h3>
+                    <div class="logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo">
+                    </div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
+                <p>Research Academy For Creative Excellence
+                </p>
             </div>
             <div class="footer-col">
                 <h4>Our Solutions</h4>
@@ -20,7 +22,9 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="<?php $p = get_page_by_path('about');
+                    echo $p ? get_permalink($p) : home_url('/about'); ?>">About
+                            Us</a></li>
                     <li><a href="#">Our Services</a></li>
                     <li><a href="#">Latest News</a></li>
                     <li><a href="#">Contact Us</a></li>
@@ -41,14 +45,32 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Header Scroll Effect
+        // Smart Scroll Header
         const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
 
         window.addEventListener('scroll', () => {
-            if (header && window.scrollY > 50) {
+            if (!header) return;
+
+            const currentScrollY = window.scrollY;
+
+            // Add/remove 'scrolled' class for background style
+            if (currentScrollY > 50) {
                 header.classList.add('scrolled');
-            } else if (header) {
+            } else {
                 header.classList.remove('scrolled');
             }
+
+            // Hide/Show Logic
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling DOWN
+                header.classList.add('nav-hidden');
+            } else {
+                // Scrolling UP
+                header.classList.remove('nav-hidden');
+            }
+
+            lastScrollY = currentScrollY;
         });
 
         // Smooth Scrolling for Anchor Links
@@ -82,6 +104,11 @@
         }
     });
 </script>
+
+<!-- WhatsApp Floating Icon -->
+<a href="https://wa.me/9645567295" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <?php wp_footer(); ?>
 </body>
