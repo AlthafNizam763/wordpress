@@ -109,6 +109,84 @@
 <a href="https://wa.me/9645567295" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
+<!-- Image Modal HTML -->
+<div id="image-modal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <a class="prev-modal" onclick="changeImage(-1)">&#10094;</a>
+    <a class="next-modal" onclick="changeImage(1)">&#10095;</a>
+    <img class="modal-content" id="modal-image">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Select all images inside the grid containers ending in "-images"
+        // Also include a generic class just in case 'gallery-image' is used in future
+        // Also excluding the logo in header/footer and icons
+        const images = document.querySelectorAll('div[class$="-images"] img, .gallery-image img');
+        let currentIndex = 0;
+        const imageList = []; // Array to store src of all scrollable images
+
+        // Populate image list and add click listeners
+        // We filter to ensure we get valid images
+        images.forEach((img) => {
+            if (img.src) {
+                imageList.push(img.src);
+                // Store the index for this specific image element
+                img.dataset.index = imageList.length - 1;
+
+                img.addEventListener('click', function () {
+                    modal.classList.add('active');
+                    modalImg.src = this.src;
+                    currentIndex = parseInt(this.dataset.index);
+                });
+            }
+        });
+
+        // Close Modal
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                modal.classList.remove('active');
+            };
+        }
+
+        // Close on clicking outside
+        if (modal) {
+            modal.onclick = (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            };
+        }
+
+        // Navigation function
+        window.changeImage = (direction) => {
+            currentIndex += direction;
+            if (currentIndex >= imageList.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = imageList.length - 1;
+            }
+            modalImg.src = imageList[currentIndex];
+        };
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            } else if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            }
+        });
+    });
+</script>
 
 <?php wp_footer(); ?>
 </body>

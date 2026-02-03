@@ -47,3 +47,50 @@ function race_create_pages()
     }
 }
 add_action('init', 'race_create_pages');
+
+// Function to display images for Day Observations
+function race_display_day_observation_images($folder_name)
+{
+    $dir_path = get_template_directory() . '/images/' . $folder_name . '/';
+    $dir_uri = get_template_directory_uri() . '/images/' . $folder_name . '/';
+
+    if (!is_dir($dir_path))
+        return;
+
+    $images = glob($dir_path . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+    if (!$images)
+        return;
+
+    $count = count($images);
+    $is_single = ($count === 1);
+
+    $grid_style = "display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;";
+
+    // For single image, we might want to restrict width if it's too wide, but user asked for "preview" style.
+    // The previous preview image was portrait. 
+    // If we keep the grid 1fr, it will be full width.
+    // We will rely on the image's intrinsic aspect ratio.
+
+    echo '<div class="' . esc_attr($folder_name) . '-images" style="' . $grid_style . '">';
+
+    foreach ($images as $image) {
+        $filename = basename($image);
+        $image_url = $dir_uri . $filename;
+
+        echo '<div class="' . esc_attr($folder_name) . '-image" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">';
+
+        if ($is_single) {
+            // Single image: Smaller size (60%), centered margin auto style comes from parent grid if possible, but easier to set on image or container.
+            // Actually, best to change the grid style for single items to center justify.
+            // But here we can just restrict width.
+            echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($folder_name) . '" style="max-width: 250px; width: 100%; height: auto; object-fit: contain; display: block; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">';
+        } else {
+            // Multiple images: Fixed height for uniform grid
+            echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($folder_name) . '" style="width: 100%; height: 250px; object-fit: cover; display: block;">';
+        }
+
+        echo '</div>';
+    }
+
+    echo '</div>';
+}

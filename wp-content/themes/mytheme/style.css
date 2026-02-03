@@ -751,3 +751,111 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+/* Image Modal Styles */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 10001;
+    /* Above header and whatsapp */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 4px;
+    object-fit: contain;
+    animation: zoomIn 0.3s;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10002;
+    padding: 10px;
+    line-height: 1;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.prev-modal,
+.next-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10002;
+}
+
+.next-modal {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-modal {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev-modal:hover,
+.next-modal:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Make images clickable */
+div[class$="-images"] img,
+.gallery-image img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+div[class$="-images"] img:hover,
+.gallery-image img:hover {
+    transform: scale(1.02);
+}
