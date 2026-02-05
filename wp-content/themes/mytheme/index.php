@@ -2,7 +2,7 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero-section">
-    <div class="hero-left">
+    <div class="hero-left animate-on-scroll">
         <small>Welcome to Race</small>
         <h1>You have to dream before your Dream Can come True</h1>
         <p>By APJ Abdul Kalam</p>
@@ -10,29 +10,29 @@
             <a href="#" class="btn">Contact Us</a>
         </div>
     </div>
-    <div class="hero-right">
+    <div class="hero-right animate-on-scroll">
         <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="Hero Background">
     </div>
 </section>
 
 <!-- Our Solutions -->
-<section id="services" class="solutions-section container">
+<section id="services" class="solutions-section container animate-on-scroll">
     <div class="solutions-header">
         <h2>Race to Excellence</h2>
         <p>Research Academy For Creative Excellence is an NGO serving with the vision to be the trailblazers of Creative
             thoughts.</p>
     </div>
     <div class="solutions-grid">
-        <div class="solution-card green">
+        <div class="solution-card green animate-on-scroll">
             <h3>☆ Our Vision</h3>
             <p style="font-size: 12px; margin-bottom: 20px;">To be the trailblazer of creative thoughts</p>
         </div>
-        <div class="solution-card grey">
+        <div class="solution-card grey animate-on-scroll">
             <h3>☆ Our Mission</h3>
             <p style="font-size: 12px; margin-bottom: 20px;">Instigate creative excellence and self-reliance among
                 individual through systematic, strategic and holistic programming.</p>
         </div>
-        <div class="solution-card black">
+        <div class="solution-card black animate-on-scroll">
             <h3>☆ Our Prespective</h3>
             <p style="font-size: 12px; margin-bottom: 20px;">With profound perception on man and mother nature, by
                 holding the divine principles of universal brotherhood, social justice and truth, sowing the seeds of
@@ -42,7 +42,7 @@
 </section>
 
 <!-- Testimonials Section -->
-<section class="testimonials-section container" style="padding: 80px 0; overflow: hidden;">
+<section class="testimonials-section container animate-on-scroll" style="padding: 80px 0; overflow: hidden;">
     <h2 style="text-align: center; margin-bottom: 50px;">Testimonials</h2>
     <div class="marquee-container">
         <div class="marquee-content">
@@ -90,22 +90,23 @@
 </section>
 
 <!-- Stats Section -->
-<section class="container" style="padding-bottom: 60px;">
+<section class="container animate-on-scroll" style="padding-bottom: 60px;">
     <div class="stats-banner">
         <div class="stat-item">
-            <h3>150+</h3>
+            <h3 data-target="150">0</h3>
             <p>Volunteer</p>
         </div>
         <div class="stat-item">
-            <h3>20+</h3>
+            <h3 data-target="20">0</h3>
             <p>Events</p>
         </div>
         <div class="stat-item">
-            <h3>120+</h3>
+            <h3 data-target="120">0</h3>
             <p>Experienced Masters</p>
         </div>
     </div>
 </section>
+
 
 <!-- Text Banner -->
 <!-- <div class="text-banner">
@@ -131,7 +132,7 @@
 <section class="container" style="text-align: center; padding-top: 60px;">
     <h2 style="margin-bottom: 10px; font-size: 36px;">What We Do @ race</h2>
 </section>
-<section class="container content-split">
+<section class="container content-split animate-on-scroll">
     <div class="text-content">
         <div class="icon-wrapper"><i class="fas fa-chalkboard-user"></i></div>
         <h3>Programs & Training</h3>
@@ -144,7 +145,7 @@
 </section>
 
 <!-- Split Content 2 -->
-<section class="container content-split">
+<section class="container content-split animate-on-scroll">
     <div class="">
         <img src="<?php echo get_template_directory_uri(); ?>/images/ResearchDevelopment.jpeg"
             alt="Research & Development">
@@ -158,7 +159,7 @@
 </section>
 
 <!-- Split Content 3 -->
-<section class="container content-split">
+<section class="container content-split animate-on-scroll">
     <div class="text-content">
         <div class="icon-wrapper"><i class="fas fa-users"></i></div>
         <h3>Project & Collaboration</h3>
@@ -295,5 +296,42 @@
         </form>
     </div>
 </section> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const counters = document.querySelectorAll(".stat-item h3");
+
+        const startCounter = (counter) => {
+            const target = +counter.getAttribute("data-target");
+            let count = 0;
+            const speed = target / 40; // speed control
+
+            const updateCount = () => {
+                count += speed;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+
+            updateCount();
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounter(entry.target);
+                    observer.unobserve(entry.target); // run only once
+                }
+            });
+        }, { threshold: 0.6 });
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+</script>
+
 
 <?php get_footer(); ?>

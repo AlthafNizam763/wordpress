@@ -1,7 +1,7 @@
 <?php
 /* Template Name: Gallery */
 get_header(); ?>
-<section class="page-header"
+<section class="page-header animate-on-scroll"
     style="background: url('<?php echo get_template_directory_uri(); ?>/images/gallerybg.png') no-repeat center center; background-size: cover; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #080808ff;">Gallery</h1>
@@ -20,7 +20,7 @@ get_header(); ?>
         if ($images) {
             foreach ($images as $image) {
                 $image_name = basename($image);
-                echo '<div class="gallery-item" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
+                echo '<div class="gallery-item animate-on-scroll" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
                 echo '<a href="' . $gallery_url . $image_name . '" target="_blank">';
                 echo '<img src="' . $gallery_url . $image_name . '" alt="Gallery Image" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease;" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">';
                 echo '</a>';

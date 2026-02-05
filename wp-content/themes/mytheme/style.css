@@ -903,3 +903,175 @@ div[class$="-images"] img:hover,
 .gallery-image img:hover {
     transform: scale(1.02);
 }
+
+.stats-banner {
+    display: flex;
+    justify-content: space-around;
+    background: #f7f7f7;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.stat-item h3 {
+    font-size: 40px;
+    color: #2ac416;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+
+/* --- Mobile Navigation & Global Fixes --- */
+@media (max-width: 768px) {
+
+    /* Header Fixes */
+    .mobile-menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1002;
+    }
+
+    .mobile-menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hamburger Animation */
+    .mobile-menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        /* changed from center to allow scrolling from top */
+        width: 100%;
+        transition: right 0.4s ease-in-out;
+        z-index: 1001;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding-top: 80px;
+        /* More space for header */
+        padding-bottom: 40px;
+        gap: 0;
+        /* Let margin handle it */
+        overflow-y: auto;
+        /* Enable scrolling */
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        flex-shrink: 0;
+        /* Prevent shrinking */
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+        display: block;
+        padding: 15px;
+        /* Bigger touch targets */
+        border-bottom: 1px solid #f0f0f0;
+        /* Separators */
+    }
+
+    /* Mobile Dropdown Handling */
+    .has-dropdown .dropdown {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        padding: 10px 0;
+        background-color: #f9f9f9;
+        width: 100%;
+        text-align: center;
+        animation: none;
+        transform: none;
+        opacity: 1;
+    }
+
+    .has-dropdown.active .dropdown {
+        display: block;
+    }
+
+    .dropdown li a {
+        font-size: 16px;
+        color: #666;
+        padding: 10px;
+    }
+}
+
+/* Desktop: Hide Hamburger */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
+
+/* --- Contact Page Responsiveness --- */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr !important;
+        /* Force stack on mobile */
+        gap: 30px;
+    }
+}
+
+/* --- Global Scroll Animations --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for grids */
+.animate-on-scroll:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.animate-on-scroll:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.animate-on-scroll:nth-child(4) {
+    transition-delay: 0.3s;
+}

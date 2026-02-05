@@ -148,7 +148,7 @@ get_header(); ?>
 </style>
 
 <div class="training-hero">
-    <div class="container">
+    <div class="container animate-on-scroll">
         <h1>Courses & Training</h1>
     </div>
 </div>
@@ -162,7 +162,7 @@ get_header(); ?>
         </div>
         <div class="program-grid">
             <!-- Disha -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/disha/';
@@ -202,7 +202,7 @@ get_header(); ?>
             </article>
 
             <!-- HOPE -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/hope/';
@@ -249,7 +249,7 @@ get_header(); ?>
         </div>
         <div class="program-grid">
             <!-- Meliora -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/meliora/';
@@ -295,7 +295,7 @@ get_header(); ?>
         </div>
         <div class="program-grid">
             <!-- Diamond Cutter -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/diamond-cutter/';
@@ -343,7 +343,7 @@ get_header(); ?>
         </div>
         <div class="program-grid">
             <!-- B.M.W -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-content">
                     <h3 class="program-title">B.M.W</h3>
                     <p class="program-desc">
@@ -355,7 +355,7 @@ get_header(); ?>
             </article>
 
             <!-- Sharpen ur saw -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-content">
                     <h3 class="program-title">Sharpen ur saw</h3>
                     <p class="program-desc">
@@ -376,7 +376,7 @@ get_header(); ?>
         </div>
         <div class="program-grid">
             <!-- Karuthal -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/karuthal/';
@@ -415,7 +415,7 @@ get_header(); ?>
             </article>
 
             <!-- Arjidha -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-content">
                     <h3 class="program-title">Arjidha</h3>
                     <p class="program-desc">
@@ -438,7 +438,7 @@ get_header(); ?>
         </div>
         <div class="program-grid">
             <!-- Hastha -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/hastha/';
@@ -478,7 +478,7 @@ get_header(); ?>
             </article>
 
             <!-- PSC -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/psc/';
@@ -517,7 +517,7 @@ get_header(); ?>
             </article>
 
             <!-- FYFO -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/fyfo/';
@@ -558,7 +558,7 @@ get_header(); ?>
             </article>
 
             <!-- FACE -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/face/';
@@ -598,7 +598,7 @@ get_header(); ?>
             </article>
 
             <!-- Cancer Awareness -->
-            <article class="program-card">
+            <article class="program-card animate-on-scroll">
                 <div class="program-image">
                     <?php
                     $disha_dir = get_template_directory() . '/images/cancer-awareness/';

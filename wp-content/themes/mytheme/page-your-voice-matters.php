@@ -2,7 +2,7 @@
 /* Template Name: Your Voice Matters */
 get_header(); ?>
 
-<section class="page-header"
+<section class="page-header animate-on-scroll"
     style="background: url('<?php echo get_template_directory_uri(); ?>/images/contactus.gif') no-repeat center center; background-size: cover; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Your Voice
@@ -12,13 +12,13 @@ get_header(); ?>
 </section>
 
 <main class="container" style="padding: 60px 20px;">
-    <div class="contact-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 60px;">
+    <div class="contact-layout">
 
         <!-- COLUMN 1: LEFT (Registration + Form) -->
         <div style="display: flex; flex-direction: column; gap: 30px;">
 
             <!-- Registration Dropdown Section -->
-            <div class="registration-section"
+            <div class="registration-section animate-on-scroll"
                 style="background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); text-align: center;">
                 <h3 style="margin-bottom: 20px; font-size: 22px; font-weight: 600; color: #11823b;">Registration</h3>
                 <div style="position: relative; display: inline-block; width: 100%;">
@@ -50,7 +50,7 @@ get_header(); ?>
             </div>
 
             <!-- Contact Form -->
-            <div class="contact-form-wrapper"
+            <div class="contact-form-wrapper animate-on-scroll"
                 style="background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
                 <h3 style="margin-bottom: 30px; font-size: 24px; font-weight: 600; color: #11823b;">Send us a Message
                 </h3>
@@ -90,7 +90,7 @@ get_header(); ?>
         </div>
 
         <!-- COLUMN 2: RIGHT (Contact Info + Map) -->
-        <div class="contact-info">
+        <div class="contact-info animate-on-scroll">
             <h2 style="font-size: 28px; margin-bottom: 30px; color: #11823b; font-weight: 700;">Get in Touch</h2>
             <p style="margin-bottom: 40px; color: #666; line-height: 1.8;">
                 We'd love to hear from you. Whether you have a question about our programs, training, or just want to

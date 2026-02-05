@@ -246,7 +246,7 @@ get_header(); ?>
     }
 </style>
 
-<section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff">Ongoing & Past
             Events</h1>
@@ -261,7 +261,7 @@ get_header(); ?>
 
         <div class="events-grid">
             <!-- Event 1 (Placeholder) -->
-            <article class="event-card">
+            <article class="event-card animate-on-scroll">
                 <div class="event-image">
                     <span class="event-badge">Ongoing</span>
                     <!-- Placeholder color block or image -->
@@ -280,7 +280,7 @@ get_header(); ?>
             </article>
 
             <!-- Event 2 (Placeholder) -->
-            <article class="event-card">
+            <article class="event-card animate-on-scroll">
                 <div class="event-image">
                     <span class="event-badge" style="background-color: #f39c12;">Upcoming</span>
                     <div
@@ -306,7 +306,7 @@ get_header(); ?>
         <div class="timeline-section">
 
             <!-- Timeline Item 1 -->
-            <div class="timeline-item">
+            <div class="timeline-item animate-on-scroll">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> December 2025</div>
@@ -317,7 +317,7 @@ get_header(); ?>
             </div>
 
             <!-- Timeline Item 2 -->
-            <div class="timeline-item">
+            <div class="timeline-item animate-on-scroll">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> October 2025</div>
@@ -328,7 +328,7 @@ get_header(); ?>
             </div>
 
             <!-- Timeline Item 3 -->
-            <div class="timeline-item">
+            <div class="timeline-item animate-on-scroll">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> August 2025</div>
@@ -339,7 +339,7 @@ get_header(); ?>
             </div>
 
             <!-- Timeline Item 4 -->
-            <div class="timeline-item">
+            <div class="timeline-item animate-on-scroll">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> June 2025</div>

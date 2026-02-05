@@ -6,19 +6,19 @@ get_header(); ?>
 
 <!-- About Hero -->
 <section class="hero-section" style="min-height: 400px; align-items: center;">
-    <div class="hero-left">
+    <div class="hero-left animate-on-scroll">
         <small>Who We Are</small>
         <h1>About Race</h1>
         <p>Research Academy for Creative Excellence</p>
     </div>
-    <div class="hero-right">
+    <div class="hero-right animate-on-scroll">
         <img src="<?php echo get_template_directory_uri(); ?>/images/bg.jpg" alt="About Hero">
     </div>
 </section>
 
 <!-- About Content -->
 <section class="container" style="padding: 60px 20px;">
-    <div class="text-content"
+    <div class="text-content animate-on-scroll"
         style="max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
         <h3 style="font-size: 32px; margin-bottom: 25px; color: #11823b;">About Us</h3>
         <p style="margin-bottom: 20px; color: #555; font-size: 16px; line-height: 1.8;">
@@ -72,7 +72,7 @@ get_header(); ?>
     </div>
     <main class="container" style="padding: 60px 20px;">
         <!-- Wings of Race Header -->
-        <div
+        <div class="animate-on-scroll"
             style="background-color: #11823b; padding: 15px; text-align: center; margin-bottom: 40px; border-radius: 4px;">
             <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Wings of race</h2>
         </div>
@@ -84,7 +84,7 @@ get_header(); ?>
                 Training & Creative Cell</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
                 <!-- Member 1 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0ff; display: flex; align-items: center; justify-content: center;">
@@ -97,7 +97,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- Member 2 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
@@ -119,7 +119,7 @@ get_header(); ?>
                 Research & Resource Cell</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
                 <!-- Member 3 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
@@ -133,7 +133,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- Member 4 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
@@ -147,7 +147,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- Member 5 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
@@ -169,7 +169,7 @@ get_header(); ?>
                 Public Relation & Programs</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 <!-- Member 6 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
@@ -182,7 +182,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- Member 7 -->
-                <div class="team-card"
+                <div class="team-card animate-on-scroll"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">

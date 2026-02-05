@@ -2,14 +2,14 @@
 /* Template Name: Projects */
 get_header(); ?>
 
-<section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Projects</h1>
     </div>
 </section>
 
 <section class="container" style="padding: 60px 20px;">
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Gurukulam</h3>
@@ -31,7 +31,7 @@ get_header(); ?>
             foreach ($images as $image):
                 $image_url = get_template_directory_uri() . '/images/gurukulam/' . basename($image);
                 ?>
-                <div class="gurukulam-image"
+                <div class="gurukulam-image animate-on-scroll"
                     style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                     <img src="<?php echo esc_url($image_url); ?>" alt="Gurukulam"
                         style="width: 100%; height: 250px; object-fit: cover;">
@@ -43,7 +43,7 @@ get_header(); ?>
     </div>
 
     <!-- <section class="container" style="padding: 60px 20px;"> -->
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Dhasha Vriksha</h3>
@@ -67,7 +67,7 @@ get_header(); ?>
             foreach ($images as $image):
                 $image_url = get_template_directory_uri() . '/images/dhashar/' . basename($image);
                 ?>
-                <div class="dhashar-image"
+                <div class="dhashar-image animate-on-scroll"
                     style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                     <img src="<?php echo esc_url($image_url); ?>" alt="dhashar"
                         style="width: 100%; height: 250px; object-fit: cover;">

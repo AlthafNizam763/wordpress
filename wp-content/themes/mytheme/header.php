@@ -31,17 +31,17 @@
                         <a href="#">Action Plan</a>
                         <ul class="dropdown">
                             <li><a href="<?php echo home_url('/ongoing-events'); ?>">Ongoing & Past Events</a>
+                            </li>
+                            <li><a href="<?php echo home_url('/courses-training'); ?>">Courses & Training</a></li>
+                            <li><a href="<?php echo home_url('/projects'); ?>">Projects</a></li>
+                            <li><a href="<?php echo home_url('/day-observations'); ?>">Day Observations</a></li>
+                            <li><a href="<?php echo home_url('/collaborations'); ?>">Collaborations</a></li>
+                            <li><a href="<?php echo home_url('/features-news'); ?>">Features in News</a></li>
+                        </ul>
                     </li>
-                    <li><a href="<?php echo home_url('/courses-training'); ?>">Courses & Training</a></li>
-                    <li><a href="<?php echo home_url('/projects'); ?>">Projects</a></li>
-                    <li><a href="<?php echo home_url('/day-observations'); ?>">Day Observations</a></li>
-                    <li><a href="<?php echo home_url('/collaborations'); ?>">Collaborations</a></li>
-                    <li><a href="<?php echo home_url('/features-news'); ?>">Features in News</a></li>
-                </ul>
-                </li>
-                <li><a href="<?php echo home_url('/meet-our-changemakers'); ?>">Meet Our Changemakers</a></li>
-                <li><a href="<?php echo home_url('/gallery'); ?>">Gallery</a></li>
-                <li><a href="<?php echo home_url('/your-voice-matters'); ?>">Your Voice Matters</a></li>
+                    <li><a href="<?php echo home_url('/meet-our-changemakers'); ?>">Meet Our Changemakers</a></li>
+                    <li><a href="<?php echo home_url('/gallery'); ?>">Gallery</a></li>
+                    <li><a href="<?php echo home_url('/your-voice-matters'); ?>">Your Voice Matters</a></li>
                 </ul>
                 <!-- <div class="header-actions">
                     <a href="#search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -50,6 +50,11 @@
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg></a>
                 </div> -->
+                <div class="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
         </div>
     </header>

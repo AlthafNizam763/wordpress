@@ -2,7 +2,7 @@
 /* Template Name: Day Observations */
 get_header(); ?>
 
-<section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Day Observations
         </h1>
@@ -10,7 +10,7 @@ get_header(); ?>
 </section>
 
 <section class="container" style="padding: 60px 20px;">
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             International & National Youth Day</h3>
@@ -26,7 +26,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('bio-farming'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Oman Celebration</h3>
@@ -40,7 +40,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('onam'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             World Kindness Day</h3>
@@ -53,7 +53,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('kindness'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             National Girl child Day</h3>
@@ -66,7 +66,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('girl-child'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Fathers Day</h3>
@@ -81,7 +81,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('father'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             International Men’s Day</h3>
@@ -95,7 +95,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('men'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             International Yoga Day</h3>
@@ -109,7 +109,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('yoga'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Malala Day</h3>
@@ -124,7 +124,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('malala'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Pusthaka Cheppu Thurannappol</h3>
@@ -138,7 +138,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('pusthaka'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Mothers Day : Thalolam</h3>
@@ -153,7 +153,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('thalolam'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Women’s Day</h3>
@@ -167,7 +167,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('women'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             World NGO Day</h3>
@@ -181,14 +181,14 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('ngo'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Republic Day Celebration</h3>
     </div>
     <?php race_display_day_observation_images('rep'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Susthiravikas</h3>
@@ -202,7 +202,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('susthiravikas'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Army Day Celebration</h3>
@@ -216,14 +216,14 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('armyday'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Christmas day celebration</h3>
     </div>
     <?php race_display_day_observation_images('christmasday'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             World Human Rights Day</h3>
@@ -237,7 +237,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('worldhumanrightday'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             UN Day celebration</h3>
@@ -250,7 +250,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('unday'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             World Mental health day</h3>
@@ -264,7 +264,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('worldmentalhealthday'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Heart Day</h3>
@@ -278,7 +278,7 @@ get_header(); ?>
     </div>
     <?php race_display_day_observation_images('heartday'); ?>
 
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Energy conservation Day</h3>

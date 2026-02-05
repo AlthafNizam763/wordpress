@@ -2,7 +2,7 @@
 /* Template Name: Features in News */
 get_header(); ?>
 
-<section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Features in News
         </h1>
@@ -21,7 +21,7 @@ get_header(); ?>
         if ($images) {
             foreach ($images as $image) {
                 $image_name = basename($image);
-                echo '<div class="gallery-item" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
+                echo '<div class="gallery-item animate-on-scroll" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
                 echo '<a href="' . $news_url . $image_name . '" target="_blank">';
                 echo '<img src="' . $news_url . $image_name . '" alt="News Image" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease;" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">';
                 echo '</a>';

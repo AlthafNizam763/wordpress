@@ -2,7 +2,7 @@
 /* Template Name: Team Race */
 get_header(); ?>
 
-<section class="page-header" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Team Race</h1>
     </div>
@@ -12,7 +12,7 @@ get_header(); ?>
     <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Wings of race</h2>
 </div>
 
-<section class="profile-section">
+<section class="profile-section animate-on-scroll">
     <div class="profile-card">
         <img src="<?php echo get_template_directory_uri(); ?>/images/head/rajilan.png" alt="MC Rajilan">
         <h3>MC Rajilan</h3>
@@ -34,7 +34,7 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="profile-section">
+<section class="profile-section animate-on-scroll">
     <div class="profile-card">
         <img src="<?php echo get_template_directory_uri(); ?>/images/head/vinod.png" alt="Vinod Sreedhar">
         <h3>Vinod Sreedhar</h3>
@@ -54,7 +54,7 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="profile-section">
+<section class="profile-section animate-on-scroll">
     <div class="profile-card">
         <img src="<?php echo get_template_directory_uri(); ?>/images/head/shahrudeen.png" alt="Shahrudeen Sir">
         <h3>Shahrudeen Sir</h3>
@@ -74,7 +74,7 @@ get_header(); ?>
     </div>
 </section>
 
-<section class="profile-section">
+<section class="profile-section animate-on-scroll">
     <div class="profile-card">
         <img src="<?php echo get_template_directory_uri(); ?>/images/head/preetha.png" alt="Preetha Mam">
         <h3>Preetha Mam</h3>
@@ -92,7 +92,7 @@ get_header(); ?>
 </section>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-    <div class="team-card"
+    <div class="team-card animate-on-scroll"
         style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
         <div style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
             <img src="<?php echo get_template_directory_uri(); ?>/images/head/reshmi.png" alt="Reshmi Sreekanth"
@@ -110,7 +110,7 @@ get_header(); ?>
         </div>
     </div>
 
-    <div class="team-card"
+    <div class="team-card animate-on-scroll"
         style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
         <div style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
             <img src="<?php echo get_template_directory_uri(); ?>/images/head/ajmal.png" alt="Ajmal A"
@@ -128,7 +128,7 @@ get_header(); ?>
         </div>
     </div>
 
-    <div class="team-card"
+    <div class="team-card animate-on-scroll"
         style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
         <div style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
             <img src="<?php echo get_template_directory_uri(); ?>/images/head/noufiya.png" alt="Noufiya N"
@@ -164,7 +164,7 @@ get_header(); ?>
             if ($images) {
                 foreach ($images as $image) {
                     $image_name = basename($image);
-                    echo '<div class="members-item" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
+                    echo '<div class="members-item animate-on-scroll" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
                     echo '<img src="' . $members_url . $image_name . '" alt="Members Image" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">';
                     echo '</div>';
                 }

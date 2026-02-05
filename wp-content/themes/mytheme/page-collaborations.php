@@ -2,7 +2,7 @@
 /* Template Name: Collaborations */
 get_header(); ?>
 
-<section class="page-header"
+<section class="page-header animate-on-scroll"
     style="background: url('<?php echo get_template_directory_uri(); ?>/images/collaborations.gif') no-repeat center center; background-size: cover; padding: 60px 0; text-align: center;">
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Collaborations
@@ -11,7 +11,7 @@ get_header(); ?>
 </section>
 <br>
 <section class="container" style="padding: 60px 20px;">
-    <div class="text-content">
+    <div class="text-content animate-on-scroll">
         <h3
             style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
             Oorjjakiran</h3>
@@ -26,7 +26,7 @@ get_header(); ?>
             geographic location in mind.
         </p>
     </div>
-    <div class="oorjjakiran">
+    <div class="oorjjakiran animate-on-scroll">
         <img src="<?php echo get_template_directory_uri(); ?>/images/oorjjakiran.jpg" alt="Oorjjakiran">
     </div>
 </section>
