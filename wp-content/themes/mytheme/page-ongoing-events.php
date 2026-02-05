@@ -75,7 +75,8 @@ get_header(); ?>
         position: absolute;
         top: 15px;
         left: 15px;
-        background-color: #e74c3c; /* Red for 'Live' */
+        background-color: #e74c3c;
+        /* Red for 'Live' */
         color: white;
         padding: 5px 12px;
         border-radius: 20px;
@@ -83,7 +84,7 @@ get_header(); ?>
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .event-content {
@@ -238,7 +239,7 @@ get_header(); ?>
         .timeline-item:nth-child(odd) .event-date {
             justify-content: flex-start;
         }
-        
+
         .section-title {
             font-size: 26px;
         }
@@ -249,30 +250,31 @@ get_header(); ?>
     <div class="container">
         <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff">Ongoing & Past
             Events</h1>
-        <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto;">Stay connected with our latest initiatives and explore our journey through past milestones.</p>
     </div>
 </section>
 
 <div class="container" style="padding: 80px 20px;">
-    
+
     <!-- Ongoing Events -->
     <div class="ongoing-section">
         <h2 class="section-title">Happening Now</h2>
-        
+
         <div class="events-grid">
             <!-- Event 1 (Placeholder) -->
             <article class="event-card">
                 <div class="event-image">
                     <span class="event-badge">Ongoing</span>
                     <!-- Placeholder color block or image -->
-                    <div style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
+                    <div
+                        style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
                         No Image Available
                     </div>
                 </div>
                 <div class="event-content">
                     <div class="event-date"><i class="far fa-calendar-alt"></i> Current Initiative</div>
                     <h3 class="event-title">Community Outreach Program 2026</h3>
-                    <p class="event-desc">We are currently actively engaging with local communities to provide support and resources. Join our volunteers in making a difference today.</p>
+                    <p class="event-desc">We are currently actively engaging with local communities to provide support
+                        and resources. Join our volunteers in making a difference today.</p>
                     <a href="#" class="event-btn">View Details</a>
                 </div>
             </article>
@@ -281,14 +283,16 @@ get_header(); ?>
             <article class="event-card">
                 <div class="event-image">
                     <span class="event-badge" style="background-color: #f39c12;">Upcoming</span>
-                    <div style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
+                    <div
+                        style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
                         No Image Available
                     </div>
                 </div>
                 <div class="event-content">
                     <div class="event-date"><i class="far fa-calendar-alt"></i> Starting Next Week</div>
                     <h3 class="event-title">Green Earth Workshop</h3>
-                    <p class="event-desc">An interactive workshop focused on sustainable living practices and environmental conservation techniques for the youth.</p>
+                    <p class="event-desc">An interactive workshop focused on sustainable living practices and
+                        environmental conservation techniques for the youth.</p>
                     <a href="#" class="event-btn">Register Now</a>
                 </div>
             </article>
@@ -298,16 +302,17 @@ get_header(); ?>
     <!-- Past Events Timeline -->
     <div class="past-section">
         <h2 class="section-title">Past Events Archive</h2>
-        
+
         <div class="timeline-section">
-            
+
             <!-- Timeline Item 1 -->
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> December 2025</div>
                     <h3 class="event-title">Annual Charity Gala</h3>
-                    <p class="event-desc">A successful evening of fundraising and celebration, bringing together donors and beneficiaries to reflect on a year of impact.</p>
+                    <p class="event-desc">A successful evening of fundraising and celebration, bringing together donors
+                        and beneficiaries to reflect on a year of impact.</p>
                 </div>
             </div>
 
@@ -317,7 +322,8 @@ get_header(); ?>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> October 2025</div>
                     <h3 class="event-title">Youth Leadership Summit</h3>
-                    <p class="event-desc">Over 200 student leaders gathered to discuss future challenges and opportunities in the sector. Keynote speakers inspired the next generation.</p>
+                    <p class="event-desc">Over 200 student leaders gathered to discuss future challenges and
+                        opportunities in the sector. Keynote speakers inspired the next generation.</p>
                 </div>
             </div>
 
@@ -327,23 +333,25 @@ get_header(); ?>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> August 2025</div>
                     <h3 class="event-title">Tech for Good Hackathon</h3>
-                    <p class="event-desc">Innovators and developers came together to build solutions for social problems. The winning team developed an app for food distribution.</p>
+                    <p class="event-desc">Innovators and developers came together to build solutions for social
+                        problems. The winning team developed an app for food distribution.</p>
                 </div>
             </div>
-            
-             <!-- Timeline Item 4 -->
-             <div class="timeline-item">
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="event-date"><i class="far fa-calendar-check"></i> June 2025</div>
                     <h3 class="event-title">Environmental Cleanup Drive</h3>
-                    <p class="event-desc">Volunteers collected over 500kg of waste from the local beaches and parks, contributing to a cleaner and improved environment.</p>
+                    <p class="event-desc">Volunteers collected over 500kg of waste from the local beaches and parks,
+                        contributing to a cleaner and improved environment.</p>
                 </div>
             </div>
 
         </div>
     </div>
-    
+
 </div>
 
 <?php get_footer(); ?>
