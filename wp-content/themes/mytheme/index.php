@@ -46,80 +46,45 @@
     <h2 style="text-align: center; margin-bottom: 50px;">Testimonials</h2>
     <div class="marquee-container">
         <div class="marquee-content">
-            <!-- Original Items -->
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=1" alt="John Doe" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>John Doe</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=2" alt="Jane Smith" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>Jane Smith</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=3" alt="Mike Johnson" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>Mike Johnson</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=4" alt="Sarah Williams" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>Sarah Williams</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Duplicate Items for Seamless Loop -->
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=1" alt="John Doe" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>John Doe</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=2" alt="Jane Smith" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>Jane Smith</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=3" alt="Mike Johnson" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>Mike Johnson</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="https://picsum.photos/300/400?random=4" alt="Sarah Williams" class="testimonial-bg">
-                <div class="testimonial-overlay"></div>
-                <div class="testimonial-content">
-                    <div class="author-info">
-                        <h4>Sarah Williams</h4>
-                    </div>
-                </div>
-            </div>
+            <?php
+            $members_path = get_template_directory() . '/images/members/';
+            $members_url = get_template_directory_uri() . '/images/members/';
+            $images = glob($members_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+
+            if ($images) {
+                // Function to display an item
+                function display_testimonial_item($image, $url)
+                {
+                    $filename = basename($image);
+                    // Remove extension
+                    $name = preg_replace('/\.[^.]+$/', '', $filename);
+                    // Replace hyphens/underscores with spaces
+                    $name = str_replace(array('-', '_'), ' ', $name);
+
+                    echo '<div class="testimonial-item">';
+                    echo '<img src="' . $url . $filename . '" alt="' . esc_attr($name) . '" class="testimonial-bg">';
+                    echo '<div class="testimonial-overlay"></div>';
+                    echo '<div class="testimonial-content">';
+                    echo '<div class="author-info">';
+                    echo '<h4>' . esc_html($name) . '</h4>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+
+                // Loop 1: Original Items
+                foreach ($images as $image) {
+                    display_testimonial_item($image, $members_url);
+                }
+
+                // Loop 2: Duplicate Items for Seamless Loop (Repeat the set)
+                foreach ($images as $image) {
+                    display_testimonial_item($image, $members_url);
+                }
+            } else {
+                echo '<p style="text-align:center; color:#999;">No testimonials found.</p>';
+            }
+            ?>
         </div>
     </div>
 </section>

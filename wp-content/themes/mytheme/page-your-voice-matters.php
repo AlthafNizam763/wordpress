@@ -84,10 +84,7 @@ get_header(); ?>
                             onfocus="this.style.borderColor='#11823b'"
                             onblur="this.style.borderColor='#ddd'"></textarea>
                     </div>
-                    <button type="submit"
-                        style="background: #11823b; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 600; width: 100%; transition: background 0.3s;"
-                        onmouseover="this.style.background='#0d612c'" onmouseout="this.style.background='#11823b'">Send
-                        Message</button>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </div>

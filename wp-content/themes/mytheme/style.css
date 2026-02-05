@@ -68,7 +68,7 @@ h6 {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    background-color: var(--primary-color);
+    background-color: #2ac416;
     color: white;
     font-weight: 600;
     text-transform: uppercase;
@@ -76,22 +76,66 @@ h6 {
     border: none;
     cursor: pointer;
     transition: var(--transition-speed);
+    position: relative;
+    /* IMPORTANT */
+    overflow: hidden;
+    /* IMPORTANT */
+}
+
+/* Shine layer */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.6),
+            transparent);
+    transform: skewX(-25deg);
+}
+
+/* Shine animation on hover */
+.btn:hover::before {
+    animation: shine 0.8s ease-in-out;
 }
 
 .btn:hover {
-    background-color: #11823b;
+    background-color: #2ac416;
 }
 
+/* Secondary button */
 .btn-secondary {
     background-color: transparent;
     border: 1px solid var(--text-color);
     color: var(--text-color);
 }
 
+.btn-secondary::before {
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+}
+
 .btn-secondary:hover {
     background-color: var(--text-color);
     color: white;
 }
+
+/* Keyframes */
+@keyframes shine {
+    from {
+        left: -80%;
+    }
+
+    to {
+        left: 130%;
+    }
+}
+
 
 /* Header */
 header {
@@ -234,7 +278,7 @@ section {
     display: grid;
     grid-template-columns: 40% 60%;
     min-height: 600px;
-    background-color: #1a1a1a;
+    background-color: #11823b;
     /* Dark left side */
 }
 
