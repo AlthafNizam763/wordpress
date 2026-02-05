@@ -87,8 +87,8 @@ get_header(); ?>
                 <div class="team-card"
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
-                        style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/rajilan.jpeg" alt="MC Rajilan"
+                        style="height: 250px; background: #f0f0f0ff; display: flex; align-items: center; justify-content: center;">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/rajilan.png" alt="MC Rajilan"
                             style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 20px;">
@@ -101,7 +101,7 @@ get_header(); ?>
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/vinod.jpeg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/vinod.png"
                             alt="Vinod Sreedhar" style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 20px;">
@@ -123,7 +123,7 @@ get_header(); ?>
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/shahrudeen.jpeg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/shahrudeen.png"
                             alt="Shahrudeen A" style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 20px;">
@@ -137,7 +137,7 @@ get_header(); ?>
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/reshmi.jpeg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/reshmi.png"
                             alt="Reshmi Sreekanth" style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 20px;">
@@ -151,7 +151,7 @@ get_header(); ?>
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/preetha.jpeg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/preetha.png"
                             alt="Dr. Preetha S" style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 20px;">
@@ -173,7 +173,7 @@ get_header(); ?>
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/ajmal.jpeg" alt="Ajmal A"
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/ajmal.png" alt="Ajmal A"
                             style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 15px;">
@@ -186,7 +186,7 @@ get_header(); ?>
                     style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
                     <div
                         style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/noufiya.jpeg" alt="Noufiya N"
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/noufiya.png" alt="Noufiya N"
                             style="max-height: 100%; max-width: 100%; object-fit: cover;">
                     </div>
                     <div style="padding: 15px;">
