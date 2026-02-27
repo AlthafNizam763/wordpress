@@ -20,12 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wordpress_db');
-define('DB_USER', 'wp_user');
-define('DB_PASSWORD', 'StrongPass123');
-define('DB_HOST','127.0.0.1');
+// define('DB_NAME', 'wordpress_db');
+// define('DB_USER', 'wp_user');
+// define('DB_PASSWORD', 'StrongPass123');
+// define('DB_HOST','127.0.0.1');
 $table_prefix = 'wp_';
 
+define('DB_NAME', 'wordpress');
+define('DB_USER', 'wp_user');
+define('DB_PASSWORD', 'StrongPassword123!');
+define('DB_HOST', 'localhost');
 
 
 /** Database charset to use in creating database tables. */
