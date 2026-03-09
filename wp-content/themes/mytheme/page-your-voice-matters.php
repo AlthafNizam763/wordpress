@@ -17,35 +17,43 @@ get_header(); ?>
         <!-- COLUMN 1: LEFT (Registration + Form) -->
         <div style="display: flex; flex-direction: column; gap: 30px;">
 
-            <!-- Registration Dropdown Section -->
+            <!-- Registration Type Selection -->
             <div class="registration-section animate-on-scroll"
                 style="background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); text-align: center;">
                 <h3 style="margin-bottom: 20px; font-size: 22px; font-weight: 600; color: #11823b;">Registration</h3>
                 <div style="position: relative; display: inline-block; width: 100%;">
-                    <button onclick="toggleRegistration()"
-                        style="width: 100%; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #555;">
-                        <span>Select an option to Register</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div id="reg-dropdown"
-                        style="display: none; position: absolute; width: 100%; background: white; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); z-index: 100;">
-                        <a href="#" target="_blank"
-                            style="display: block; padding: 12px 15px; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; transition: background 0.2s;"
-                            onmouseover="this.style.background='#f0f0f0'"
-                            onmouseout="this.style.background='white'">Partner with our mission</a>
-                        <a href="#" target="_blank"
-                            style="display: block; padding: 12px 15px; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; transition: background 0.2s;"
-                            onmouseover="this.style.background='#f0f0f0'"
-                            onmouseout="this.style.background='white'">Participated</a>
-                        <a href="#" target="_blank"
-                            style="display: block; padding: 12px 15px; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; transition: background 0.2s;"
-                            onmouseover="this.style.background='#f0f0f0'"
-                            onmouseout="this.style.background='white'">Volunteer</a>
-                        <a href="#" target="_blank"
-                            style="display: block; padding: 12px 15px; color: #333; text-decoration: none; transition: background 0.2s;"
-                            onmouseover="this.style.background='#f0f0f0'"
-                            onmouseout="this.style.background='white'">Internship</a>
+                    <select id="registration-type" onchange="switchRegistrationForm(this.value)"
+                        style="width: 100%; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-size: 16px; color: #555; outline: none;">
+                        <option value="">Select an option to Register</option>
+                        <option value="partner">Partner with our mission</option>
+                        <option value="volunteership">Volunteership</option>
+                        <option value="participant">Participant</option>
+                        <option value="internship">Internship</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dynamic Registration Forms -->
+            <div id="registration-form-container" class="contact-form-wrapper animate-on-scroll"
+                style="background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: none;">
+                
+                <form id="active-registration-form" onsubmit="handleFormSubmit(event)">
+                    <div id="form-fields">
+                        <!-- Fields will be injected here via JS -->
                     </div>
+                    
+                    <p style="font-size: 12px; color: #777; margin: 20px 0; line-height: 1.4;">
+                        "Your data is safe with us and will only be used for communication related to [RACE] activities."
+                    </p>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Submit Registration</button>
+                </form>
+
+                <div id="success-message" style="display: none; text-align: center; padding: 40px 0;">
+                    <i class="fas fa-check-circle" style="font-size: 60px; color: #11823b; margin-bottom: 20px;"></i>
+                    <h3 style="color: #11823b;">Thank you for your interest!</h3>
+                    <p>Our team will get back to you within 2-3 working days.</p>
+                    <button onclick="resetRegistration()" class="btn" style="margin-top: 20px;">Fill Another Form</button>
                 </div>
             </div>
 
@@ -132,7 +140,7 @@ get_header(); ?>
                 </div>
             </div>
 
-            <!-- Map Section (Moved here) -->
+            <!-- Map Section -->
             <div class="map-section"
                 style="width: 100%; border-radius: 10px; overflow: hidden; height: 350px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
                 <iframe
@@ -145,22 +153,180 @@ get_header(); ?>
 </main>
 
 <script>
-    function toggleRegistration() {
-        var dropdown = document.getElementById("reg-dropdown");
-        if (dropdown.style.display === "none" || dropdown.style.display === "") {
-            dropdown.style.display = "block";
+    const formFields = {
+        partner: `
+            <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Partner with our mission</h4>
+            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group"><label>Full Name</label><input type="text" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
+                <div class="form-group"><label>Current Designation</label><input type="text" required></div>
+                <div class="form-group">
+                    <label>Type of Partner</label>
+                    <select required>
+                        <option value="Corporate/CSR">Corporate/CSR</option>
+                        <option value="Educational Institution">Educational Institution</option>
+                        <option value="NGO">NGO</option>
+                        <option value="Government Body">Government Body</option>
+                        <option value="Individual">Individual</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Organization Name</label><input type="text"></div>
+                <div class="form-group"><label>Website/Profile Link</label><input type="url"></div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Nature of Partnership</label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 5px;">
+                        <label style="font-weight: 400;"><input type="checkbox"> Financial Support</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Resource Sharing</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Joint Projects</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Advocacy/Awareness</label>
+                    </div>
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Briefly: Why do you want to join our mission?</label>
+                    <textarea rows="3"></textarea>
+                </div>
+            </div>
+        `,
+        volunteership: `
+            <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Volunteership</h4>
+            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group"><label>Full Name</label><input type="text" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Current Position</label>
+                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                        <label style="font-weight: 400;"><input type="checkbox"> Working</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Studying</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Self employed</label>
+                    </div>
+                </div>
+                <div class="form-group" style="grid-column: span 2;"><label>Designation/Education/Entrepreneurship</label><input type="text" required></div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Area of Interest</label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 5px;">
+                        <label style="font-weight: 400;"><input type="checkbox"> Teaching/Training</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Counseling</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Marketing/Social Media</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Field Work</label>
+                        <label style="font-weight: 400;"><input type="checkbox"> Admin Support</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Availability</label>
+                    <select required>
+                        <option value="Weekends">Weekends</option>
+                        <option value="Weekdays">Weekdays</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Virtual/Remote">Virtual/Remote</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Specific Skills</label><input type="text"></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Previous Volunteering Experience</label><textarea rows="2"></textarea></div>
+            </div>
+        `,
+        participant: `
+            <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Participant</h4>
+            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group"><label>Full Name</label><input type="text" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
+                <div class="form-group">
+                    <label>Target Group</label>
+                    <select required>
+                        <option value="Student">Student</option>
+                        <option value="Professional">Professional</option>
+                        <option value="Entrepreneur">Entrepreneur</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Educator">Educator</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Education/Current status</label><input type="text" required></div>
+                <div class="form-group">
+                    <label>Program of Interest</label>
+                    <select required>
+                        <option value="Gurukulam 2026">Gurukulam 2026</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: span 2;"><label>Expectations: What do you hope to gain?</label><textarea rows="3"></textarea></div>
+            </div>
+        `,
+        internship: `
+            <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Internship</h4>
+            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group"><label>Full Name</label><input type="text" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Educational Qualification (Course & Year)</label><input type="text" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Institute/University Name</label><input type="text" required></div>
+                <div class="form-group">
+                    <label>Duration Required</label>
+                    <select required>
+                        <option value="1 Month">1 Month</option>
+                        <option value="3 Months">3 Months</option>
+                        <option value="6 Months">6 Months</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Resume/CV (PDF/Word)</label><input type="file" accept=".pdf,.doc,.docx" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Letter of Recommendation/NOC (Optional)</label><input type="file" accept=".pdf,.doc,.docx"></div>
+            </div>
+        `
+    };
+
+    function switchRegistrationForm(type) {
+        const container = document.getElementById('registration-form-container');
+        const formDiv = document.getElementById('form-fields');
+        const activeForm = document.getElementById('active-registration-form');
+        const successMsg = document.getElementById('success-message');
+
+        if (type && formFields[type]) {
+            formDiv.innerHTML = formFields[type];
+            container.style.display = 'block';
+            activeForm.style.display = 'block';
+            successMsg.style.display = 'none';
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-            dropdown.style.display = "none";
+            container.style.display = 'none';
         }
     }
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (event) {
-        var isClickInside = document.querySelector('.registration-section').contains(event.target);
-        if (!isClickInside) {
-            document.getElementById("reg-dropdown").style.display = "none";
-        }
-    });
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const activeForm = document.getElementById('active-registration-form');
+        const successMsg = document.getElementById('success-message');
+
+        // Mocking submission
+        activeForm.style.display = 'none';
+        successMsg.style.display = 'block';
+    }
+
+    function resetRegistration() {
+        document.getElementById('registration-type').value = '';
+        document.getElementById('registration-form-container').style.display = 'none';
+    }
 </script>
+
+<style>
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px; color: #444; }
+    .form-group input[type="text"], 
+    .form-group input[type="email"], 
+    .form-group input[type="url"],
+    .form-group select, 
+    .form-group textarea {
+        width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background: #f9f9f9; outline: none; font-size: 14px;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #11823b; }
+    
+    @media (max-width: 600px) {
+        .form-grid { grid-template-columns: 1fr !important; }
+        .form-group { grid-column: span 1 !important; }
+    }
+</style>
 
 <?php get_footer(); ?>

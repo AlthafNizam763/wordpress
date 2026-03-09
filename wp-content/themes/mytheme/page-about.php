@@ -1,7 +1,5 @@
 <?php
-/*
-Template Name: About Us
-*/
+/* Template Name: About Us */
 get_header(); ?>
 
 <!-- About Hero -->
@@ -43,160 +41,33 @@ get_header(); ?>
                 <h3
                     style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
                     The race</h3>
-                <p
-                    style="margin-bottom: 20px; color: #555; line-height: 1.8; font-size: 16px; background: #f9f9f9; padding: 20px; border-radius: 6px; border-left: 4px solid #11823b;">
-                    We provide training solution to professionals, Entrepreneurs, Top, Medium and Bottom level Managers,
-                    Employees, Head and faculty of educational Institutions, Leaders of social organisations, Families,
-                    Students and Marketing Team. Strong elements that assist the organisation in flying to the
-                    destination
-                    are built into race wings. We collaborate with distinct goals, distinct patterns, and distinct
-                    techniques that enable us to accomplish admirably.
-                </p>
+                <div style="margin-bottom: 20px; color: #555; line-height: 1.8; font-size: 16px; background: #f9f9f9; padding: 25px; border-radius: 6px; border-left: 4px solid #11823b;">
+                    <p style="margin-bottom: 15px;"><strong>Vision:</strong> To be the trailblazer of creative thoughts.</p>
+                    <p style="margin-bottom: 15px;"><strong>Mission:</strong> To instigate creative excellence and self-reliance through systematic, strategic, and holistic programming.</p>
+                    <p style="margin-bottom: 0;"><strong>Perspective:</strong> With a profound perception of humanity and nature, we uphold the divine principles of universal brotherhood, social justice, and truth to sow the seeds of creative excellence.</p>
+                </div>
             </div>
 
             <div>
                 <h3
                     style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
                     Chairman's desk</h3>
-                <p
-                    style="margin-bottom: 20px; color: #555; line-height: 1.8; font-size: 16px; background: #f9f9f9; padding: 20px; border-radius: 6px; border-left: 4px solid #11823b;">
-                    We provide training solution to professionals, Entrepreneurs, Top, Medium and Bottom level Managers,
-                    Employees, Head and faculty of educational Institutions, Leaders of social organisations, Families,
-                    Students and Marketing Team. Strong elements that assist the organisation in flying to the
-                    destination
-                    are built into race wings. We collaborate with distinct goals, distinct patterns, and distinct
-                    techniques that enable us to accomplish admirably.
-                </p>
+                <div
+                    style="margin-bottom: 20px; color: #555; line-height: 1.8; font-size: 16px; background: #f9f9f9; padding: 25px; border-radius: 6px; border-left: 4px solid #11823b;">
+                    <p style="margin-bottom: 15px;">Welcome to the Research Academy for Creative Excellence (RACE).</p>
+                    <p style="margin-bottom: 15px;">At RACE, we believe that the journey to excellence is not a solitary path, but a collaborative flight. Our Training Division is a vital part of the present & future generations, dedicated to helping individuals and organizations reach their highest potential.</p>
+                    <p style="margin-bottom: 15px;">We often say that the strong elements assisting an organization in flying toward its destination are built into our "race wings." These wings are constructed through, Precision in defining what success looks like for you, Innovative frameworks tailored to modern challenges and specialized methods that enable us to accomplish goals admirably.</p>
+                    <p style="margin-bottom: 15px;">RACE is not limited to a single sector. We take pride in offering holistic training solutions across the entire spectrum of society, From Top, Medium, and Bottom-level Managers to Employees and Marketing Teams, Heads and faculty of educational institutions, as well as students. Professionals, Entrepreneurs, leaders of social organizations, and various NGOs. We offer specialized counseling in Adolescent, Pre-marital, and Family dynamics.</p>
+                    <p style="margin-bottom: 15px;">Our work is anchored by a clear sense of purpose:</p>
+                    <p style="margin-bottom: 10px;"><strong>Vision:</strong> To be the trailblazer of creative thoughts.</p>
+                    <p style="margin-bottom: 10px;"><strong>Mission:</strong> To instigate creative excellence and self-reliance through systematic, strategic, and holistic programming.</p>
+                    <p style="margin-bottom: 20px;"><strong>Perspective:</strong> With a profound perception of humanity and nature, we uphold the divine principles of universal brotherhood, social justice, and truth to sow the seeds of creative excellence.</p>
+                    <p style="margin-bottom: 15px;">We invite you to join us. Whether you are a student looking for direction, a professional seeking a new dimension of personality, or an entrepreneur ready to lead, RACE is here to provide the wings you need to fly.</p>
+                    <p style="margin-top: 25px;">Warm regards,<br><strong>Chairman, Research Academy for Creative Excellence (RACE)</strong></p>
+                </div>
             </div>
         </div>
     </div>
-    <main class="container" style="padding: 60px 20px;">
-        <!-- Wings of Race Header -->
-        <div class="animate-on-scroll"
-            style="background-color: #11823b; padding: 15px; text-align: center; margin-bottom: 40px; border-radius: 4px;">
-            <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Wings of race</h2>
-        </div>
-
-        <!-- Training & Creative Cell -->
-        <div class="team-category" style="margin-bottom: 60px;">
-            <h3
-                style="border-left: 4px solid #a91b0d; padding-left: 15px; color: #000080; font-size: 22px; margin-bottom: 30px; background: #eee; padding: 10px 15px;">
-                Training & Creative Cell</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <!-- Member 1 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 250px; background: #f0f0f0ff; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/rajilan.png" alt="MC Rajilan"
-                            style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 20px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-weight: 700;">MC Rajilan</h4>
-                        <p style="color: #666; font-size: 14px; margin: 0;">Chairman & Training Head</p>
-                    </div>
-                </div>
-                <!-- Member 2 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/vinod.png"
-                            alt="Vinod Sreedhar" style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 20px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-weight: 700;">Vinod Sreedhar</h4>
-                        <p style="color: #666; font-size: 14px; margin: 0;">Vice Chairman, Training & Creative Head</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Research & Resource Cell -->
-        <div class="team-category" style="margin-bottom: 60px;">
-            <h3
-                style="border-left: 4px solid #a91b0d; padding-left: 15px; color: #000080; font-size: 22px; margin-bottom: 30px; background: #eee; padding: 10px 15px;">
-                Research & Resource Cell</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <!-- Member 3 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/shahrudeen.png"
-                            alt="Shahrudeen A" style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 20px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-weight: 700;">Shahrudeen A</h4>
-                        <p style="color: #666; font-size: 14px; margin: 0;">General Secretary, Training & Research Head
-                        </p>
-                    </div>
-                </div>
-                <!-- Member 4 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/reshmi.png"
-                            alt="Reshmi Sreekanth" style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 20px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-weight: 700;">Reshmi Sreekanth</h4>
-                        <p style="color: #666; font-size: 14px; margin: 0;">Research, Govt Project In charge &
-                            Administrative Head</p>
-                    </div>
-                </div>
-                <!-- Member 5 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/preetha.png"
-                            alt="Dr. Preetha S" style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 20px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-weight: 700;">Dr. Preetha S</h4>
-                        <p style="color: #666; font-size: 14px; margin: 0;">Guidance & Counseling Cell race</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Public Relation & Programs -->
-        <div class="team-category" style="margin-bottom: 60px;">
-            <h3
-                style="border-left: 4px solid #a91b0d; padding-left: 15px; color: #000080; font-size: 22px; margin-bottom: 30px; background: #eee; padding: 10px 15px;">
-                Public Relation & Programs</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                <!-- Member 6 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/ajmal.png" alt="Ajmal A"
-                            style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Ajmal A</h4>
-                        <p style="color: #666; font-size: 13px; margin: 0;">Chief Student & Project Coordinator</p>
-                    </div>
-                </div>
-                <!-- Member 7 -->
-                <div class="team-card animate-on-scroll"
-                    style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-                    <div
-                        style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/head/noufiya.png" alt="Noufiya N"
-                            style="max-height: 100%; max-width: 100%; object-fit: cover;">
-                    </div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #333; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Noufiya N</h4>
-                        <p style="color: #666; font-size: 13px; margin: 0;">Chief Student & Project Coordinator</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
 </section>
 
 <?php get_footer(); ?>

@@ -24,17 +24,17 @@
     </div>
     <div class="solutions-grid">
         <div class="solution-card green animate-on-scroll">
-            <h3>☆ Our Vision</h3>
-            <p style="font-size: 12px; margin-bottom: 20px;">To be the trailblazer of creative thoughts</p>
+            <h3 style="margin-top: 0; margin-bottom: 20px;">☆ Our Vision</h3>
+            <p style="font-size: 16px; line-height: 1.6; font-weight: 300;">To be the trailblazer of creative thoughts</p>
         </div>
         <div class="solution-card grey animate-on-scroll">
-            <h3>☆ Our Mission</h3>
-            <p style="font-size: 12px; margin-bottom: 20px;">Instigate creative excellence and self-reliance among
+            <h3 style="margin-top: 0; margin-bottom: 20px;">☆ Our Mission</h3>
+            <p style="font-size: 16px; line-height: 1.6; font-weight: 400;">Instigate creative excellence and self-reliance among
                 individual through systematic, strategic and holistic programming.</p>
         </div>
         <div class="solution-card black animate-on-scroll">
-            <h3>☆ Our Prespective</h3>
-            <p style="font-size: 12px; margin-bottom: 20px;">With profound perception on man and mother nature, by
+            <h3 style="margin-top: 0; margin-bottom: 20px;">☆ Our Prespective</h3>
+            <p style="font-size: 16px; line-height: 1.6; font-weight: 300;">With profound perception on man and mother nature, by
                 holding the divine principles of universal brotherhood, social justice and truth, sowing the seeds of
                 creative excellence.</p>
         </div>
@@ -46,45 +46,66 @@
     <h2 style="text-align: center; margin-bottom: 50px;">Testimonials</h2>
     <div class="marquee-container">
         <div class="marquee-content">
-            <?php
-            $members_path = get_template_directory() . '/images/members/';
-            $members_url = get_template_directory_uri() . '/images/members/';
-            $images = glob($members_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                        <?php
+$testimonials = [
+    "This NGO transformed my skills through training and volunteering in impactful government and community projects.",
+    "The training programs improved my confidence, leadership, and teamwork, preparing me for real social responsibilities.",
+    "Volunteering with this organisation gave me practical experience and deep understanding of community development challenges.",
+    "I coordinated online programs smoothly, gaining technical skills, organisational experience, and strong communication abilities daily.",
+    "Working on government projects through this NGO taught discipline, responsibility, and commitment to public service.",
+    "Every program was well-organised, practical, and inspiring, helping participants develop professional and personal competencies strongly.",
+    "The NGO created opportunities for youth leadership, social awareness, and active participation in community initiatives.",
+    "I learned teamwork and problem-solving while volunteering, making my contribution to society more meaningful today.",
+    "The online training sessions were interactive, accessible, and professionally managed, enhancing learning and engagement significantly.",
+    "Being part of this NGO strengthened my values, skills, and motivation to serve communities effectively."
+];
 
-            if ($images) {
-                // Function to display an item
-                function display_testimonial_item($image, $url)
-                {
-                    $filename = basename($image);
-                    // Remove extension
-                    $name = preg_replace('/\.[^.]+$/', '', $filename);
-                    // Replace hyphens/underscores with spaces
-                    $name = str_replace(array('-', '_'), ' ', $name);
+$testimonial_path = get_template_directory() . '/images/testimonials/';
+$testimonial_url = get_template_directory_uri() . '/images/testimonials/';
 
-                    echo '<div class="testimonial-item">';
-                    echo '<img src="' . $url . $filename . '" alt="' . esc_attr($name) . '" class="testimonial-bg">';
-                    echo '<div class="testimonial-overlay"></div>';
-                    echo '<div class="testimonial-content">';
-                    echo '<div class="author-info">';
-                    echo '<h4>' . esc_html($name) . '</h4>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
+// Get all image files from the testimonials folder
+$image_files = glob($testimonial_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
-                // Loop 1: Original Items
-                foreach ($images as $image) {
-                    display_testimonial_item($image, $members_url);
-                }
+// Function to display an item
+if (!function_exists('display_testimonial_card')) {
+    function display_testimonial_card($text, $image_url, $name)
+    {
+        echo '<div class="testimonial-card-new">';
+        echo '<div class="testimonial-img-box">';
+        echo '<img src="' . $image_url . '" alt="' . esc_attr($name) . '">';
+        echo '<span class="author-name">' . esc_html($name) . '</span>';
+        echo '</div>';
+        echo '<div class="testimonial-text-box">';
+        echo '<p style="margin-bottom: 0;">' . esc_html($text) . '</p>';
+        echo '<a href="#" class="read-more">Read More..</a>';
+        echo '</div>';
+        echo '</div>';
+    }
+}
 
-                // Loop 2: Duplicate Items for Seamless Loop (Repeat the set)
-                foreach ($images as $image) {
-                    display_testimonial_item($image, $members_url);
-                }
-            } else {
-                echo '<p style="text-align:center; color:#999;">No testimonials found.</p>';
-            }
-            ?>
+if ($image_files) {
+    // Loop through twice for seamless marquee
+    for ($loop = 0; $loop < 2; $loop++) {
+        foreach ($image_files as $index => $file) {
+            $filename = basename($file);
+            $img_url = $testimonial_url . $filename;
+
+            // Clean up name from filename (e.g., Dhanu-G-S.jpg -> Dhanu G S)
+            $name = pathinfo($filename, PATHINFO_FILENAME);
+            $name = str_replace(['-', '_', '.'], ' ', $name);
+            $name = ucwords(strtolower($name));
+
+            // Pick a testimonial text (cycle if more images than texts, but here it's likely vice versa)
+            $text = $testimonials[$index % count($testimonials)];
+
+            display_testimonial_card($text, $img_url, $name);
+        }
+    }
+}
+else {
+    echo '<p>No testimonials found.</p>';
+}
+?>
         </div>
     </div>
 </section>
@@ -164,7 +185,7 @@
         <div class="icon-wrapper"><i class="fas fa-users"></i></div>
         <h3>Project & Collaboration</h3>
         <p style="margin-bottom: 20px; color: #666;">Each individual contributes effectively to shared goals, fostering
-            personal growth and organizational success through collaborative teamwork.</p>
+            personal growth and organizational success through collaborative teamwork with government and community stakeholders.</p>
     </div>
     <div class="">
         <img src="<?php echo get_template_directory_uri(); ?>/images/ProjectCollaboration.jpeg"

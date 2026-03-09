@@ -13,27 +13,27 @@
             <div class="footer-col">
                 <h4>Our Solutions</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Power & Energy</a></li>
-                    <li><a href="#">Petroleum & Gas</a></li>
-                    <li><a href="#">Factory Engineering</a></li>
-                    <li><a href="#">Quality Control</a></li>
+                    <li><a href="<?php echo home_url('/#home'); ?>">Programs & Training</a></li>
+                    <li><a href="<?php echo home_url('/#services'); ?>">Research & Development</a></li>
+                    <li><a href="<?php echo home_url('/#services'); ?>">Project & Collaboration</a></li>
+                    <li><a href="<?php echo home_url('/courses-training'); ?>">Courses & Training</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
                     <li><a href="<?php $p = get_page_by_path('about');
-                    echo $p ? get_permalink($p) : home_url('/about'); ?>">About
+echo $p ? get_permalink($p) : home_url('/about'); ?>">About
                             Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Latest News</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="<?php echo home_url('/#services'); ?>">Our Services</a></li>
+                    <li><a href="<?php echo home_url('/features-news'); ?>">News & Updates</a></li>
+                    <li><a href="<?php echo home_url('/your-voice-matters'); ?>">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Get in Touch</h4>
-                <p>123 Street Name, City Name,<br>United States</p>
-                <p>+1 123 456 7890<br>info@example.com</p>
+                <p>262 Bhavana Nagar Town,<br>Kadappakada, Kollam, 691008</p>
+                <p>+91 96455 67295<br>raceindia2014@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">

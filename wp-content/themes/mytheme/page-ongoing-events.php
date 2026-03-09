@@ -279,21 +279,20 @@ get_header(); ?>
                 </div>
             </article>
 
-            <!-- Event 2 (Placeholder) -->
+            <!-- Event 2 (Gurukulam 2k26) -->
             <article class="event-card animate-on-scroll">
                 <div class="event-image">
                     <span class="event-badge" style="background-color: #f39c12;">Upcoming</span>
                     <div
                         style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
-                        No Image Available
+                        Gurukulam 2k26
                     </div>
                 </div>
                 <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar-alt"></i> Starting Next Week</div>
-                    <h3 class="event-title">Green Earth Workshop</h3>
-                    <p class="event-desc">An interactive workshop focused on sustainable living practices and
-                        environmental conservation techniques for the youth.</p>
-                    <a href="#" class="event-btn">Register Now</a>
+                    <div class="event-date"><i class="far fa-calendar-alt"></i> Expected date April 2nd Week</div>
+                    <h3 class="event-title">Gurukulam 2k26 (15th Edition)</h3>
+                    <p class="event-desc">An exclusive residential camp for creating personality transformation among the teens and adolescents.</p>
+                    <a href="#" class="event-btn">View Details</a>
                 </div>
             </article>
         </div>

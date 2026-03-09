@@ -100,12 +100,9 @@ get_header(); ?>
         </div>
         <div style="padding: 15px;">
             <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Reshmi Sreekanth</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Chief Student & Project Coordinator</p>
+            <p style="color: #666; font-size: 13px; margin: 0;">Research, Govt Project In charge & Administrative Head</p>
             <ul>
-                <li>MBA ( HR & Marketing )</li>
-                <li>Entrepreneur ( Customized Online Gift Sales )</li>
-                <li>Achievement : Headed a team who had achieved the Indian Book of Records by making Largest Dream
-                    Catcher in India</li>
+                <li>B.S.W & M.S.W, University of Kerala</li>
             </ul>
         </div>
     </div>
@@ -118,12 +115,11 @@ get_header(); ?>
         </div>
         <div style="padding: 15px;">
             <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Ajmal A</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Chief Student & Project Coordinator</p>
+            <p style="color: #666; font-size: 13px; margin: 0;">Chief Project Coordinator</p>
             <ul>
-                <li>MBA ( HR & Marketing )</li>
-                <li>Entrepreneur ( Customized Online Gift Sales )</li>
-                <li>Achievement : Headed a team who had achieved the Indian Book of Records by making Largest Dream
-                    Catcher in India</li>
+                <li>M.B.A & B.B.A</li>
+                <li>Senior Business Studies Teacher</li>
+                <li>MGG, Tamil Nadu</li>
             </ul>
         </div>
     </div>
@@ -138,8 +134,7 @@ get_header(); ?>
             <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Noufiya N</h4>
             <p style="color: #666; font-size: 13px; margin: 0;">Chief Student & Project Coordinator</p>
             <ul>
-                <li>M.Sc Zoology</li>
-                <li>Best NSS Volunteer Award 2019</li>
+                <li>M.Sc & B.Sc</li>
             </ul>
         </div>
     </div>
@@ -148,30 +143,31 @@ get_header(); ?>
 
 
 <div style="background-color: #11823b; padding: 15px; text-align: center; margin-bottom: 40px; border-radius: 4px;">
-    <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Team Members</h2>
+    <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Student Volunteers</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
     <!-- M -->
     <main class="container" style="padding: 60px 20px;">
         <div class="members-images" style="column-count: 4; column-gap: 20px;">
             <?php
-            $members_path = get_template_directory() . '/images/members/';
-            $members_url = get_template_directory_uri() . '/images/members/';
+$members_path = get_template_directory() . '/images/members/';
+$members_url = get_template_directory_uri() . '/images/members/';
 
-            // Get all image files
-            $images = glob($members_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+// Get all image files
+$images = glob($members_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
-            if ($images) {
-                foreach ($images as $image) {
-                    $image_name = basename($image);
-                    echo '<div class="members-item animate-on-scroll" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
-                    echo '<img src="' . $members_url . $image_name . '" alt="Members Image" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">';
-                    echo '</div>';
-                }
-            } else {
-                echo '<p style="text-align: center; color: #666;">No images found in the members.</p>';
-            }
-            ?>
+if ($images) {
+    foreach ($images as $image) {
+        $image_name = basename($image);
+        echo '<div class="members-item animate-on-scroll" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
+        echo '<img src="' . $members_url . $image_name . '" alt="Members Image" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">';
+        echo '</div>';
+    }
+}
+else {
+    echo '<p style="text-align: center; color: #666;">No images found in the members.</p>';
+}
+?>
         </div>
 </div>
 </div>
