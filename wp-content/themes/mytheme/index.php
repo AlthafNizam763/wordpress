@@ -4,10 +4,12 @@
 <section id="home" class="hero-section">
     <div class="hero-left animate-on-scroll">
         <small>Welcome to Race</small>
-        <h1>You have to dream before your Dream Can come True</h1>
-        <p>By APJ Abdul Kalam</p>
+      <h1>Self Discovery & Personality transformation Program.</h1>
+        <p>Let's Unlock Sustainable Potential</p>
         <div>
-            <a href="#" class="btn">Contact Us</a>
+            <a href="https://wa.me/919061517298?text=Hi%20I%20want%20to%20register" target="_blank" class="btn">
+            Register Now
+            </a>
         </div>
     </div>
     <div class="hero-right animate-on-scroll">

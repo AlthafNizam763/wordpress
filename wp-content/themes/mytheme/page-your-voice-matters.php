@@ -1,5 +1,65 @@
 <?php
 /* Template Name: Your Voice Matters */
+
+// Handle Form Submission (AJAX)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'submit_voice_form') {
+    $to = 'raceindianow@gmail.com';
+    $form_type = sanitize_text_field($_POST['form_type']);
+    $subject = "New Submission: " . ucwords($form_type) . " - RACE";
+
+    $message_body = "You have a new submission from the 'Your Voice Matters' page.\n\n";
+    $message_body .= "Form Type: " . ucwords($form_type) . "\n";
+    $message_body .= "------------------------------------------\n";
+
+    foreach ($_POST as $key => $value) {
+        if (!in_array($key, ['action', 'form_type'])) {
+            $label = ucwords(str_replace('_', ' ', $key));
+            $val = is_array($value) ? implode(', ', array_map('sanitize_text_field', $value)) : sanitize_text_field($value);
+            $message_body .= "$label: $val\n";
+        }
+    }
+
+    // Ensure a valid "From" address to prevent PHPMailer 'Invalid address' errors
+    $from_email = 'raceindianow@gmail.com';
+    $from_name = 'RACE Website';
+
+    add_filter('wp_mail_from', function () use ($from_email) {
+        return $from_email;
+    });
+    add_filter('wp_mail_from_name', function () use ($from_name) {
+        return $from_name;
+    });
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . $from_name . ' <' . $from_email . '>'
+    );
+
+    // Capture mail failure details
+    $last_error = '';
+    add_action('wp_mail_failed', function ($wp_error) use (&$last_error) {
+        $last_error = $wp_error->get_error_message();
+        error_log("wp_mail failed: " . $last_error);
+    }, 10, 1);
+
+    $sent = wp_mail($to, $subject, $message_body, $headers);
+
+    if ($sent) {
+        wp_send_json_success('Thank you! Your submission has been received.');
+    }
+    else {
+        $error_msg = 'Sorry, there was an error sending your message. ';
+        if (!empty($last_error)) {
+            $error_msg .= "Technical details: " . $last_error;
+        }
+        else {
+            $error_msg .= 'This is usually because your local server (WAMP) is not configured to send emails. Please install and configure a "WP Mail SMTP" plugin to send real emails.';
+        }
+        wp_send_json_error($error_msg);
+    }
+    exit;
+}
+
 get_header(); ?>
 
 <section class="page-header animate-on-scroll"
@@ -37,7 +97,7 @@ get_header(); ?>
             <div id="registration-form-container" class="contact-form-wrapper animate-on-scroll"
                 style="background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: none;">
                 
-                <form id="active-registration-form" onsubmit="handleFormSubmit(event)">
+                <form id="active-registration-form" onsubmit="handleFormSubmit(event, 'registration')">
                     <div id="form-fields">
                         <!-- Fields will be injected here via JS -->
                     </div>
@@ -51,8 +111,8 @@ get_header(); ?>
 
                 <div id="success-message" style="display: none; text-align: center; padding: 40px 0;">
                     <i class="fas fa-check-circle" style="font-size: 60px; color: #11823b; margin-bottom: 20px;"></i>
-                    <h3 style="color: #11823b;">Thank you for your interest!</h3>
-                    <p>Our team will get back to you within 2-3 working days.</p>
+                    <h3 id="success-title" style="color: #11823b;">Thank you for your interest!</h3>
+                    <p id="success-text">Our team will get back to you within 2-3 working days.</p>
                     <button onclick="resetRegistration()" class="btn" style="margin-top: 20px;">Fill Another Form</button>
                 </div>
             </div>
@@ -62,37 +122,38 @@ get_header(); ?>
                 style="background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
                 <h3 style="margin-bottom: 30px; font-size: 24px; font-weight: 600; color: #11823b;">Send us a Message
                 </h3>
-                <form action="" method="post">
+                <form id="contact-message-form" onsubmit="handleFormSubmit(event, 'contact')">
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #444;">Your
                             Name</label>
-                        <input type="text" placeholder="Enter your name"
+                        <input type="text" name="name" placeholder="Enter your name" required
                             style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9; outline: none; transition: border 0.3s;"
                             onfocus="this.style.borderColor='#11823b'" onblur="this.style.borderColor='#ddd'">
                     </div>
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #444;">Email
                             Address</label>
-                        <input type="email" placeholder="Enter your email"
+                        <input type="email" name="email" placeholder="Enter your email" required
                             style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9; outline: none; transition: border 0.3s;"
                             onfocus="this.style.borderColor='#11823b'" onblur="this.style.borderColor='#ddd'">
                     </div>
                     <div style="margin-bottom: 20px;">
                         <label
                             style="display: block; margin-bottom: 8px; font-weight: 500; color: #444;">Subject</label>
-                        <input type="text" placeholder="Enter subject"
+                        <input type="text" name="subject" placeholder="Enter subject" required
                             style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9; outline: none; transition: border 0.3s;"
                             onfocus="this.style.borderColor='#11823b'" onblur="this.style.borderColor='#ddd'">
                     </div>
                     <div style="margin-bottom: 30px;">
                         <label
                             style="display: block; margin-bottom: 8px; font-weight: 500; color: #444;">Message</label>
-                        <textarea placeholder="Write your message..." rows="5"
+                        <textarea name="message" placeholder="Write your message..." rows="5" required
                             style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9; outline: none; transition: border 0.3s;"
                             onfocus="this.style.borderColor='#11823b'"
                             onblur="this.style.borderColor='#ddd'"></textarea>
                     </div>
                     <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    <div id="contact-status" style="margin-top: 15px; text-align: center; display: none;"></div>
                 </form>
             </div>
         </div>
@@ -125,7 +186,7 @@ get_header(); ?>
                 </div>
                 <div>
                     <h4 style="margin: 0 0 5px; color: #333; font-size: 18px;">Email Us</h4>
-                    <p style="margin: 0; color: #666;">raceindia2014@gmail.com</p>
+                    <p style="margin: 0; color: #666;">raceindianow@gmail.com</p>
                 </div>
             </div>
 
@@ -157,14 +218,14 @@ get_header(); ?>
         partner: `
             <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Partner with our mission</h4>
             <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div class="form-group"><label>Full Name</label><input type="text" required></div>
-                <div class="form-group"><label>Email Address</label><input type="email" required></div>
-                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
-                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
-                <div class="form-group"><label>Current Designation</label><input type="text" required></div>
+                <div class="form-group"><label>Full Name</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" name="whatsapp_number" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" name="location" required></div>
+                <div class="form-group"><label>Current Designation</label><input type="text" name="designation" required></div>
                 <div class="form-group">
                     <label>Type of Partner</label>
-                    <select required>
+                    <select name="partner_type" required>
                         <option value="Corporate/CSR">Corporate/CSR</option>
                         <option value="Educational Institution">Educational Institution</option>
                         <option value="NGO">NGO</option>
@@ -172,72 +233,72 @@ get_header(); ?>
                         <option value="Individual">Individual</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Organization Name</label><input type="text"></div>
-                <div class="form-group"><label>Website/Profile Link</label><input type="url"></div>
+                <div class="form-group"><label>Organization Name</label><input type="text" name="organization_name"></div>
+                <div class="form-group"><label>Website/Profile Link</label><input type="url" name="website_link"></div>
                 <div class="form-group" style="grid-column: span 2;">
                     <label>Nature of Partnership</label>
                     <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 5px;">
-                        <label style="font-weight: 400;"><input type="checkbox"> Financial Support</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Resource Sharing</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Joint Projects</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Advocacy/Awareness</label>
+                        <label style="font-weight: 400;"><input type="radio" name="partnership_nature" value="Financial Support" required> Financial Support</label>
+                        <label style="font-weight: 400;"><input type="radio" name="partnership_nature" value="Resource Sharing"> Resource Sharing</label>
+                        <label style="font-weight: 400;"><input type="radio" name="partnership_nature" value="Joint Projects"> Joint Projects</label>
+                        <label style="font-weight: 400;"><input type="radio" name="partnership_nature" value="Advocacy/Awareness"> Advocacy/Awareness</label>
                     </div>
                 </div>
                 <div class="form-group" style="grid-column: span 2;">
                     <label>Briefly: Why do you want to join our mission?</label>
-                    <textarea rows="3"></textarea>
+                    <textarea name="reason" rows="3"></textarea>
                 </div>
             </div>
         `,
         volunteership: `
             <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Volunteership</h4>
             <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div class="form-group"><label>Full Name</label><input type="text" required></div>
-                <div class="form-group"><label>Email Address</label><input type="email" required></div>
-                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
-                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
+                <div class="form-group"><label>Full Name</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" name="whatsapp_number" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" name="location" required></div>
                 <div class="form-group" style="grid-column: span 2;">
                     <label>Current Position</label>
                     <div style="display: flex; gap: 15px; margin-top: 5px;">
-                        <label style="font-weight: 400;"><input type="checkbox"> Working</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Studying</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Self employed</label>
+                        <label style="font-weight: 400;"><input type="radio" name="current_position" value="Working" required> Working</label>
+                        <label style="font-weight: 400;"><input type="radio" name="current_position" value="Studying"> Studying</label>
+                        <label style="font-weight: 400;"><input type="radio" name="current_position" value="Self employed"> Self employed</label>
                     </div>
                 </div>
-                <div class="form-group" style="grid-column: span 2;"><label>Designation/Education/Entrepreneurship</label><input type="text" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Designation/Education/Entrepreneurship</label><input type="text" name="background" required></div>
                 <div class="form-group" style="grid-column: span 2;">
                     <label>Area of Interest</label>
                     <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 5px;">
-                        <label style="font-weight: 400;"><input type="checkbox"> Teaching/Training</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Counseling</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Marketing/Social Media</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Field Work</label>
-                        <label style="font-weight: 400;"><input type="checkbox"> Admin Support</label>
+                        <label style="font-weight: 400;"><input type="radio" name="interest_areas" value="Teaching/Training" required> Teaching/Training</label>
+                        <label style="font-weight: 400;"><input type="radio" name="interest_areas" value="Counseling"> Counseling</label>
+                        <label style="font-weight: 400;"><input type="radio" name="interest_areas" value="Marketing/Social Media"> Marketing/Social Media</label>
+                        <label style="font-weight: 400;"><input type="radio" name="interest_areas" value="Field Work"> Field Work</label>
+                        <label style="font-weight: 400;"><input type="radio" name="interest_areas" value="Admin Support"> Admin Support</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Availability</label>
-                    <select required>
+                    <select name="availability" required>
                         <option value="Weekends">Weekends</option>
                         <option value="Weekdays">Weekdays</option>
                         <option value="Full-time">Full-time</option>
                         <option value="Virtual/Remote">Virtual/Remote</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Specific Skills</label><input type="text"></div>
-                <div class="form-group" style="grid-column: span 2;"><label>Previous Volunteering Experience</label><textarea rows="2"></textarea></div>
+                <div class="form-group"><label>Specific Skills</label><input type="text" name="skills"></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Previous Volunteering Experience</label><textarea name="experience" rows="2"></textarea></div>
             </div>
         `,
         participant: `
             <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Participant</h4>
             <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div class="form-group"><label>Full Name</label><input type="text" required></div>
-                <div class="form-group"><label>Email Address</label><input type="email" required></div>
-                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
-                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
+                <div class="form-group"><label>Full Name</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" name="whatsapp_number" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" name="location" required></div>
                 <div class="form-group">
                     <label>Target Group</label>
-                    <select required>
+                    <select name="target_group" required>
                         <option value="Student">Student</option>
                         <option value="Professional">Professional</option>
                         <option value="Entrepreneur">Entrepreneur</option>
@@ -245,35 +306,35 @@ get_header(); ?>
                         <option value="Educator">Educator</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Education/Current status</label><input type="text" required></div>
+                <div class="form-group"><label>Education/Current status</label><input type="text" name="status" required></div>
                 <div class="form-group">
                     <label>Program of Interest</label>
-                    <select required>
+                    <select name="program_interest" required>
                         <option value="Gurukulam 2026">Gurukulam 2026</option>
                     </select>
                 </div>
-                <div class="form-group" style="grid-column: span 2;"><label>Expectations: What do you hope to gain?</label><textarea rows="3"></textarea></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Expectations: What do you hope to gain?</label><textarea name="expectations" rows="3"></textarea></div>
             </div>
         `,
         internship: `
             <h4 style="color: #11823b; margin-bottom: 20px; text-align: center;">Internship</h4>
             <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div class="form-group"><label>Full Name</label><input type="text" required></div>
-                <div class="form-group"><label>Email Address</label><input type="email" required></div>
-                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" required></div>
-                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" required></div>
-                <div class="form-group" style="grid-column: span 2;"><label>Educational Qualification (Course & Year)</label><input type="text" required></div>
-                <div class="form-group" style="grid-column: span 2;"><label>Institute/University Name</label><input type="text" required></div>
+                <div class="form-group"><label>Full Name</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Mobile Number (WhatsApp)</label><input type="text" name="whatsapp_number" required></div>
+                <div class="form-group"><label>Location/Address (City/State)</label><input type="text" name="location" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Educational Qualification (Course & Year)</label><input type="text" name="qualification" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Institute/University Name</label><input type="text" name="institute" required></div>
                 <div class="form-group">
                     <label>Duration Required</label>
-                    <select required>
+                    <select name="duration" required>
                         <option value="1 Month">1 Month</option>
                         <option value="3 Months">3 Months</option>
                         <option value="6 Months">6 Months</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Resume/CV (PDF/Word)</label><input type="file" accept=".pdf,.doc,.docx" required></div>
-                <div class="form-group" style="grid-column: span 2;"><label>Letter of Recommendation/NOC (Optional)</label><input type="file" accept=".pdf,.doc,.docx"></div>
+                <div class="form-group"><label>Resume/CV (Upload to Google Drive & Link here)</label><input type="url" name="resume_link" placeholder="Link to your resume" required></div>
+                <div class="form-group" style="grid-column: span 2;"><label>Letter of Recommendation/NOC Link</label><input type="url" name="noc_link"></div>
             </div>
         `
     };
@@ -295,14 +356,87 @@ get_header(); ?>
         }
     }
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        const activeForm = document.getElementById('active-registration-form');
-        const successMsg = document.getElementById('success-message');
+    const WHATSAPP_NUMBER = '9061517298';
 
-        // Mocking submission
-        activeForm.style.display = 'none';
-        successMsg.style.display = 'block';
+    function buildWhatsAppText(formType, formData) {
+        let text = 'Your Voice Matters Submission:\n';
+
+        if (formType === 'registration') {
+            const regType = document.getElementById('registration-type').value;
+            text += 'Form: Registration (' + (regType || 'unspecified') + ')\n';
+        } else {
+            text += 'Form: Send Us a Message\n';
+        }
+
+        text += '------------------------------------------\n';
+
+        for (const [key, value] of formData.entries()) {
+            if (key === 'action' || key === 'form_type') continue;
+            text += key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + ': ' + value + '\n';
+        }
+
+        return text;
+    }
+
+    function sendToWhatsApp(formType, formData) {
+        const message = buildWhatsAppText(formType, formData);
+        const encoded = encodeURIComponent(message);
+        const waUrl = `https://wa.me/91${WHATSAPP_NUMBER}?text=${encoded}`;
+        window.open(waUrl, '_blank');
+    }
+
+    async function handleFormSubmit(event, formType) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        formData.append('action', 'submit_voice_form');
+
+        // Add form type info
+        if (formType === 'registration') {
+            const regType = document.getElementById('registration-type').value;
+            formData.append('form_type', 'registration_' + regType);
+        } else {
+            formData.append('form_type', 'contact_message');
+        }
+
+        // Send data to WhatsApp as requested
+        sendToWhatsApp(formType, formData);
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch(window.location.href, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                if (formType === 'registration') {
+                    document.getElementById('active-registration-form').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                    document.getElementById('success-text').innerText = result.data;
+                } else {
+                    const status = document.getElementById('contact-status');
+                    status.style.display = 'block';
+                    status.style.color = '#11823b';
+                    status.innerText = result.data;
+                    form.reset();
+                }
+            } else {
+                alert(result.data || 'Submission failed. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Something went wrong. Please check your connection.');
+        } finally {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        }
     }
 
     function resetRegistration() {

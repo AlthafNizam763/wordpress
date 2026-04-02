@@ -261,11 +261,11 @@ get_header(); ?>
 
         <div class="events-grid">
             <!-- Event 1 (Placeholder) -->
-            <article class="event-card animate-on-scroll">
+            <!-- <article class="event-card animate-on-scroll">
                 <div class="event-image">
-                    <span class="event-badge">Ongoing</span>
+                    <span class="event-badge">Ongoing</span> -->
                     <!-- Placeholder color block or image -->
-                    <div
+                    <!-- <div
                         style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
                         No Image Available
                     </div>
@@ -277,22 +277,19 @@ get_header(); ?>
                         and resources. Join our volunteers in making a difference today.</p>
                     <a href="#" class="event-btn">View Details</a>
                 </div>
-            </article>
+            </article> -->
 
             <!-- Event 2 (Gurukulam 2k26) -->
             <article class="event-card animate-on-scroll">
                 <div class="event-image">
                     <span class="event-badge" style="background-color: #f39c12;">Upcoming</span>
-                    <div
-                        style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
-                        Gurukulam 2k26
-                    </div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/gurukulam26.jpeg" alt="Gurukulam 2k26" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar-alt"></i> Expected date April 2nd Week</div>
-                    <h3 class="event-title">Gurukulam 2k26 (15th Edition)</h3>
-                    <p class="event-desc">An exclusive residential camp for creating personality transformation among the teens and adolescents.</p>
-                    <a href="#" class="event-btn">View Details</a>
+                    <div class="event-date"><i class="far fa-calendar-alt"></i> Expected date April 10th & 11th 2026</div>
+                    <h3 class="event-title">Race Gurukulam 2k26 in Association with IMA Kollam</h3>
+                    <p class="event-desc">Self Discovery & Personality Transformation Program for the students in the age group between 12 & 18</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdX4lwtw9ggMoNBSBJ-XphIIYLn-Cxi4ud5CfMwrlN_364WWQ/viewform?usp=publish-editor" class="event-btn">Register Now</a>
                 </div>
             </article>
         </div>
