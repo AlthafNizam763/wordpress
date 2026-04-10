@@ -20,9 +20,9 @@
 <!-- Our Solutions -->
 <section id="services" class="solutions-section container animate-on-scroll">
     <div class="solutions-header">
-        <h2>Race to Excellence</h2>
-        <p>Research Academy For Creative Excellence is an NGO serving with the vision to be the trailblazers of Creative
-            thoughts.</p>
+        <h2>race for excellence</h2>
+        <!-- <p>Research Academy For Creative Excellence is an NGO serving with the vision to be the trailblazers of Creative
+            thoughts.</p> -->
     </div>
     <div class="solutions-grid">
         <div class="solution-card green animate-on-scroll">
@@ -34,12 +34,36 @@
             <p style="font-size: 16px; line-height: 1.6; font-weight: 400;">Instigate creative excellence and self-reliance among
                 individual through systematic, strategic and holistic programming.</p>
         </div>
-        <div class="solution-card black animate-on-scroll">
+        <div class="solution-card black animate-on-scroll" style="background-color: #FAC000;">
             <h3 style="margin-top: 0; margin-bottom: 20px;">☆ Our Prespective</h3>
-            <p style="font-size: 16px; line-height: 1.6; font-weight: 300;">With profound perception on man and mother nature, by
-                holding the divine principles of universal brotherhood, social justice and truth, sowing the seeds of
-                creative excellence.</p>
+            <p style="font-size: 16px; line-height: 1.6; font-weight: 300;">With a profound vision on man and Mother Nature,<br>By holding the divine principles of universal brotherhood,  Social justice and truth,
+            And sowing the seeds of creative excellence,
+            The Chancellors of RACE will stride beyond the frontiers of nations
+            For an exuberant realm</p>
         </div>
+    </div>
+</section>
+
+<section class="container" style="padding: 60px 20px;">
+    <div class="text-content animate-on-scroll"
+        style="max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+        <h3 style="font-size: 32px; margin-bottom: 25px; color: #11823b;">About Us</h3>
+        <p style="margin-bottom: 20px; color: #555; font-size: 16px; line-height: 1.8;">
+            Research Academy for Creative Excellence – race is a charitable organization of people with creative
+            excellence. This great tree of knowledge has different areas of activities. Training division is one among
+            them. race organizes training for different sections of society including Educators, Students, Youth,
+            Professionals, Corporate, Marketing Personnel, various NGOs, Business entrepreneurs to develop their
+            personality in new dimensions. Adolescent, Pre marital, family counseling are other key areas in which
+            Trainers of race concentrating.
+        </p>
+        <p style="margin-bottom: 20px; color: #555; font-size: 16px; line-height: 1.8;">
+            A team of Trainers, Counselors and Doctors are in charge of race Training division. Professional Trainers
+            with National and International exposure are conducting programmes by following the methodology of activity
+            oriented participatory and experimental learning techniques.
+        </p>
+        <p style="margin-bottom: 40px; color: #555; font-size: 16px; line-height: 1.8;">race is working in association
+            with many National and International
+            training organizations.</p>
     </div>
 </section>
 

@@ -33,7 +33,7 @@ echo $p ? get_permalink($p) : home_url('/about'); ?>">About
             <div class="footer-col">
                 <h4>Get in Touch</h4>
                 <p>262 Bhavana Nagar Town,<br>Kadappakada, Kollam, 691008</p>
-                <p>+91 96455 67295<br>raceindia2014@gmail.com</p>
+                <p>+91 96455 67295<br>raceindianow@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">

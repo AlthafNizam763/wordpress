@@ -40,7 +40,7 @@ function is_active($path)
                 <ul class="nav-links">
                     <li><a href="<?php echo home_url('/#home'); ?>" class="<?php echo(is_front_page()) ? 'active' : ''; ?>">Home</a></li>
                     <li><a href="<?php $p = get_page_by_path('about');
-echo $p ? get_permalink($p) : home_url('/about'); ?>" class="<?php echo is_active('about'); ?>">About Us</a></li>
+echo $p ? get_permalink($p) : home_url('/about'); ?>" class="<?php echo is_active('about'); ?>">CMD</a></li>
                     <li><a href="<?php echo home_url('/team-race'); ?>" class="<?php echo is_active('team-race'); ?>">Team Race</a></li>
                     <li class="has-dropdown">
                         <a href="#" class="<?php echo(is_page(['ongoing-events', 'courses-training', 'projects', 'day-observations', 'collaborations', 'features-news'])) ? 'active' : ''; ?>">Action Plan</a>

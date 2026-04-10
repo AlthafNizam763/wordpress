@@ -9,7 +9,6 @@ get_header(); ?>
 </section>
 
 <div style="background-color: #11823b; padding: 15px; text-align: center; margin-bottom: 40px; border-radius: 4px;">
-    <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Wings of race</h2>
 </div>
 
 <section class="profile-section animate-on-scroll">
@@ -19,18 +18,19 @@ get_header(); ?>
     </div>
 
     <div class="profile-details">
-        <h2>Chairman & Training Head</h2>
+        <h2>Founder & Chairman</h2>
 
         <ul>
             <li>Trainer's Trainer & Mentor, DoPT, Govt of India</li>
             <li>Trainer's Trainer & Author, JCI</li>
-            <li>Founder, Research Academy for Creative Excellence (race)</li>
+            <li>30+ years of excellence in HR training</li>
+            <!-- <li>Founder, Research Academy for Creative Excellence (race)</li> -->
         </ul>
 
-        <h4>Experience :</h4>
+        <!-- <h4>Experience :</h4>
         <ul>
             <li>Completed education at SNMUP School Kandachira, Govt High School Anchalummood & SN College Kollam</li>
-        </ul>
+        </ul> -->
     </div>
 </section>
 
@@ -41,15 +41,18 @@ get_header(); ?>
     </div>
 
     <div class="profile-details">
-        <h2>Vice chairman, training & creative head</h2>
+        <h2>Vice Chairman, Training & Creative Head</h2>
 
         <ul>
-            <li>Department of Personnel and Training (DoPT) , Govt. Of India</li>
+            <li>Trainer's Trainer & Mentor, DoPT, Govt of India</li>
+            <li>Trainer's Trainer & Author, JCI</li>
+            <li>25+ years of excellence in HR training</li>
+            <!-- <li>Department of Personnel and Training (DoPT) , Govt. Of India</li>
             <li>Designer Of Training (DOT)</li>
             <li>Direct Trainer Skills (DTS)</li>
             <li>Experiential Learning Tools (ELT)</li>
             <li>Mentoring</li>
-            <li>Training Need Analysis (TNA)</li>
+            <li>Training Need Analysis (TNA)</li> -->
         </ul>
     </div>
 </section>
@@ -61,15 +64,18 @@ get_header(); ?>
     </div>
 
     <div class="profile-details">
-        <h2>General Secretary, Training & Research Head</h2>
+        <h2>General Secretary</h2>
 
         <ul>
-            <li>Gernral secretary of research academy for creative excellence</li>
+            <li>Trainer, DoPT, Govt of India</li>
+            <li>National trainer of junior chamber international India.</li>
+            <li>20+ years of excellence in HR training</li>
+            <!-- <li>Gernral secretary of research academy for creative excellence</li>
             <li>PRO& Head of programmes cell at RACE</li>
             <li>National trainer of junior chamber international India.</li>
             <li>Faculty of various NGO’s, state government departments and renowned Research and development
                 institutions.</li>
-            <li>Serving the society as facilitator for anti drugs workshops of government of kerala</li>
+            <li>Serving the society as facilitator for anti drugs workshops of government of kerala</li> -->
         </ul>
     </div>
 </section>
@@ -77,16 +83,16 @@ get_header(); ?>
 <section class="profile-section animate-on-scroll">
     <div class="profile-card">
         <img src="<?php echo get_template_directory_uri(); ?>/images/head/preetha.png" alt="Preetha Mam">
-        <h3>Preetha Mam</h3>
+        <h3>Dr. S Preetha</h3>
     </div>
 
     <div class="profile-details">
-        <h2>Guidance & Counseling Cell race</h2>
+        <h2>Head, Guidance & Counseling Cell</h2>
 
         <ul>
-            <li>Asst .Professor – Govt. College of Nursing, Thiruvanathapuram.</li>
-            <li>Having 27 years Teaching and Administrative experience as, Principal of School of Nursing, Asst Lecturer
-                , Senior Lecturer and Asst. Professor in various Colleges</li>
+            <li>Trainer, DoPT, Govt of India</li>
+            <li>National trainer of junior chamber international India.</li>
+            <li>20+ years of excellence in HR training</li>
         </ul>
     </div>
 </section>
