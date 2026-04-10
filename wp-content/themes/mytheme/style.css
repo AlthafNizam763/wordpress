@@ -641,6 +641,60 @@ footer {
     padding: 20px 0;
 }
 
+@media (max-width: 768px) {
+    .marquee-container {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-container {
+        padding: 10px 0;
+    }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .testimonials-section {
+        padding: 60px 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 40px 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 30px 0 !important;
+    }
+}
+
+.testimonials-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .testimonials-section h2 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+}
+
 /* Move toward the left: Start at 0 and move to -50% */
 @keyframes scroll-left {
     0% {
@@ -673,6 +727,32 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+@media (max-width: 1024px) {
+    .testimonial-card-new {
+        width: 380px;
+        height: 160px;
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card-new {
+        width: 320px;
+        height: 140px;
+        margin: 0 10px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-card-new {
+        width: 280px;
+        height: 120px;
+        margin: 0 8px;
+        padding: 12px;
+    }
+}
+
 .testimonial-img-box {
     width: 140px;
     height: 140px;
@@ -684,6 +764,20 @@ footer {
     align-items: center;
     position: relative;
     flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .testimonial-img-box {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-img-box {
+        width: 90px;
+        height: 90px;
+    }
 }
 
 .testimonial-img-box img {
@@ -712,6 +806,18 @@ footer {
     white-space: normal;
 }
 
+@media (max-width: 768px) {
+    .testimonial-text-box {
+        padding-left: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-text-box {
+        padding-left: 8px;
+    }
+}
+
 .testimonial-text-box p {
     font-size: 14px;
     line-height: 1.4;
@@ -723,11 +829,40 @@ footer {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .testimonial-text-box p {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-text-box p {
+        font-size: 11px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        margin-bottom: 4px;
+    }
+}
+
 .testimonial-text-box .read-more {
     color: #3b82f6;
     font-size: 13px;
     text-decoration: none;
     font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .testimonial-text-box .read-more {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-text-box .read-more {
+        font-size: 10px;
+    }
 }
 
 /* Stats Banner */
@@ -741,6 +876,27 @@ footer {
     color: white;
 }
 
+@media (max-width: 1024px) {
+    .stats-banner {
+        padding: 50px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-banner {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-banner {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+}
+
 .stat-item {
     text-align: center;
 }
@@ -751,6 +907,24 @@ footer {
     margin-bottom: 5px;
 }
 
+@media (max-width: 1024px) {
+    .stat-item h3 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-item h3 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-item h3 {
+        font-size: 32px;
+    }
+}
+
 .stat-item p {
     font-size: 18px;
     opacity: 0.9;
@@ -758,9 +932,14 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .stats-banner {
-        flex-direction: column;
-        gap: 30px;
+    .stat-item p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-item p {
+        font-size: 14px;
     }
 }
 

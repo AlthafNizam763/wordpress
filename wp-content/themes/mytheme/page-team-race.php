@@ -105,11 +105,8 @@ get_header(); ?>
                 style="max-height: 100%; max-width: 100%; object-fit: cover;">
         </div>
         <div style="padding: 15px;">
-            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Reshmi Sreekanth</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Research, Govt Project In charge & Administrative Head</p>
-            <ul>
-                <li>B.S.W & M.S.W, University of Kerala</li>
-            </ul>
+            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Reshmi Sreekanth, M.S.W</h4>
+            <p style="color: #666; font-size: 13px; margin: 0;">Govt Project Coordinator & Administrative Officer</p>
         </div>
     </div>
 
@@ -120,13 +117,9 @@ get_header(); ?>
                 style="max-height: 100%; max-width: 100%; object-fit: cover;">
         </div>
         <div style="padding: 15px;">
-            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Ajmal A</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Chief Project Coordinator</p>
-            <ul>
-                <li>M.B.A & B.B.A</li>
-                <li>Senior Business Studies Teacher</li>
-                <li>MGG, Tamil Nadu</li>
-            </ul>
+            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Ajmal A, M.B.A</h4>
+            <p style="color: #666; font-size: 13px; margin: 0;">Chief Director Projects</p>
+            
         </div>
     </div>
 
@@ -137,11 +130,8 @@ get_header(); ?>
                 style="max-height: 100%; max-width: 100%; object-fit: cover;">
         </div>
         <div style="padding: 15px;">
-            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Noufiya N</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Chief Student & Project Coordinator</p>
-            <ul>
-                <li>M.Sc & B.Sc</li>
-            </ul>
+            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Noufiya N, M.Sc</h4>
+            <p style="color: #666; font-size: 13px; margin: 0;">Chief Student Project Officer</p>
         </div>
     </div>
 </div>

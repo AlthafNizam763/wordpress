@@ -34,7 +34,7 @@
             <p style="font-size: 16px; line-height: 1.6; font-weight: 400;">Instigate creative excellence and self-reliance among
                 individual through systematic, strategic and holistic programming.</p>
         </div>
-        <div class="solution-card black animate-on-scroll" style="background-color: #FAC000;">
+        <div class="solution-card black animate-on-scroll" style="background-color: #FAC150;">
             <h3 style="margin-top: 0; margin-bottom: 20px;">☆ Our Prespective</h3>
             <p style="font-size: 16px; line-height: 1.6; font-weight: 300;">With a profound vision on man and Mother Nature,<br>By holding the divine principles of universal brotherhood,  Social justice and truth,
             And sowing the seeds of creative excellence,

@@ -282,7 +282,7 @@ get_header(); ?>
             <!-- Event 2 (Gurukulam 2k26) -->
             <article class="event-card animate-on-scroll">
                 <div class="event-image">
-                    <span class="event-badge" style="background-color: #f39c12;">Upcoming</span>
+                    <span class="event-badge" style="background-color: #f32112;">Ongoing</span>
                     <img src="<?php echo get_template_directory_uri(); ?>/images/gurukulam26.jpeg" alt="Gurukulam 2k26" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <div class="event-content">

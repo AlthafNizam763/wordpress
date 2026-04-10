@@ -3,25 +3,85 @@
 get_header(); ?>
 <!-- About Content -->
 <section class="about-content container animate-on-scroll">
-    <div style="max-width: 800px; margin: 0 auto;">
+    <div class="chairman-section">
 
-        <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee;">
-            <div>
-                <h3
-                    style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
-                    Chairman's desk</h3>
-                <div
-                    style="margin-bottom: 20px; color: #555; line-height: 1.8; font-size: 16px; background: #f9f9f9; padding: 25px; border-radius: 6px; border-left: 4px solid #11823b;">
-                    <p style="margin-bottom: 15px;">Welcome to the Research Academy for Creative Excellence (RACE).</p>
-                    <p style="margin-bottom: 15px;">At RACE, we believe that the journey to excellence is not a solitary path, but a collaborative flight. Our Training Division is a vital part of the present & future generations, dedicated to helping individuals and organizations reach their highest potential.</p>
-                    <p style="margin-bottom: 15px;">We often say that the strong elements assisting an organization in flying toward its destination are built into our "race wings." These wings are constructed through, Precision in defining what success looks like for you, Innovative frameworks tailored to modern challenges and specialized methods that enable us to accomplish goals admirably.</p>
-                    <p style="margin-bottom: 15px;">RACE is not limited to a single sector. We take pride in offering holistic training solutions across the entire spectrum of society, From Top, Medium, and Bottom-level Managers to Employees and Marketing Teams, Heads and faculty of educational institutions, as well as students. Professionals, Entrepreneurs, leaders of social organizations, and various NGOs. We offer specialized counseling in Adolescent, Pre-marital, and Family dynamics.</p>
-                    <p style="margin-bottom: 15px;">We invite you to join us. Whether you are a student looking for direction, a professional seeking a new dimension of personality, or an entrepreneur ready to lead, RACE is here to provide the wings you need to fly.</p>
-                    <p style="margin-top: 25px;">Warm regards,<br><strong>Chairman,MC Rajilan</strong></p>
-                </div>
-            </div>
+        <h3 class="section-title">Chair Desk</h3>
+
+        <div class="chairman-card">
+            <p>Welcome to the Research Academy for Creative Excellence (race).</p>
+
+            <p>
+                At race, we believe that the journey to excellence is not a solitary path,
+                but a collaborative flight. Our Training Division plays a vital role in shaping
+                present and future generations, helping individuals and organizations reach
+                their highest potential.
+            </p>
+
+            <p>
+                We often say that the strong elements assisting an organization in flying
+                toward its destination are built into our “race Wings.” These wings are
+                crafted through precision in defining success, innovative frameworks tailored
+                to modern challenges, and specialized methods that help achieve goals effectively.
+            </p>
+
+            <p>
+                race is not limited to a single sector. We offer holistic training solutions
+                across society—from top, middle, and entry-level managers to employees,
+                marketing teams, academic leaders, faculty, and students. We also support
+                professionals, entrepreneurs, social leaders, NGOs, and provide counseling
+                in adolescent, pre-marital, and family dynamics.
+            </p>
+
+            <p>
+                We invite you to join us. Whether you are a student seeking direction,
+                a professional aiming for growth, or an entrepreneur ready to lead,
+                race is here to give you the wings to fly.
+            </p>
+
+            <p class="signature">
+                Warm regards,<br>
+                <strong>MC Rajilan</strong><br>
+                Chairman
+            </p>
         </div>
+
     </div>
 </section>
+
+<style>
+.chairman-section {
+    max-width: 800px;
+    margin: 50px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.section-title {
+    border-left: 4px solid #a91b0d;
+    padding-left: 15px;
+    color: #000080;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.chairman-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #11823b;
+    color: #555;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.chairman-card p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    margin-top: 25px;
+}
+</style>
 
 <?php get_footer(); ?>
