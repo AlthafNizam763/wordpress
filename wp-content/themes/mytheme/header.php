@@ -40,7 +40,7 @@ function is_active($path)
                 <ul class="nav-links">
                     <li><a href="<?php echo home_url('/#home'); ?>" class="<?php echo(is_front_page()) ? 'active' : ''; ?>">Home</a></li>
                     <li><a href="<?php $p = get_page_by_path('about');
-echo $p ? get_permalink($p) : home_url('/about'); ?>" class="<?php echo is_active('about'); ?>">CMD</a></li>
+echo $p ? get_permalink($p) : home_url('/about'); ?>" class="<?php echo is_active('about'); ?>" title="Chairman's Desk">CMD</a></li>
                     <li><a href="<?php echo home_url('/team-race'); ?>" class="<?php echo is_active('team-race'); ?>">Team Race</a></li>
                     <li class="has-dropdown">
                         <a href="#" class="<?php echo(is_page(['ongoing-events', 'courses-training', 'projects', 'day-observations', 'collaborations', 'features-news'])) ? 'active' : ''; ?>">Action Plan</a>
@@ -72,3 +72,61 @@ echo $p ? get_permalink($p) : home_url('/about'); ?>" class="<?php echo is_activ
             </nav>
         </div>
     </header>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.getElementById('header');
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        let lastScroll = 0;
+        let scrollTimeout;
+
+        // Mobile Menu Toggle
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        // Header Scroll Hide/Show
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+
+            clearTimeout(scrollTimeout);
+
+            // Hide header when scrolling down, show when scrolling up
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scrolling DOWN
+                header.classList.add('nav-hidden');
+            } else {
+                // Scrolling UP
+                header.classList.remove('nav-hidden');
+            }
+
+            lastScroll = currentScroll;
+
+            // Auto-hide header after 3 seconds of no scroll when scrolled down
+            if (currentScroll > 100) {
+                scrollTimeout = setTimeout(function() {
+                    if (window.pageYOffset > 100) {
+                        header.classList.add('nav-hidden');
+                    }
+                }, 3000);
+            }
+        });
+
+        // Show header on page top
+        if (window.pageYOffset < 100) {
+            header.classList.remove('nav-hidden');
+        }
+    });
+    </script>

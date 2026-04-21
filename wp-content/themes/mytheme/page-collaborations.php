@@ -1,33 +1,43 @@
 <?php
 /* Template Name: Collaborations */
-get_header(); ?>
+get_header();
 
-<section class="page-header animate-on-scroll"
-    style="background: url('<?php echo get_template_directory_uri(); ?>/images/collaborations.gif') no-repeat center center; background-size: cover; padding: 60px 0; text-align: center;">
+race_render_page_hero(array(
+    'title' => 'Collaborations',
+    'description' => 'Institutional partnerships and public-interest collaborations that amplify the reach of RACE.',
+    'image' => get_template_directory_uri() . '/images/collaborations.gif',
+));
+?>
+
+<section class="section-shell">
     <div class="container">
-        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Collaborations
-        </h1>
-    </div>
-</section>
-<br>
-<section class="container" style="padding: 60px 20px;">
-    <div class="text-content animate-on-scroll">
-        <h3
-            style="border-left: 4px solid #a91b0d; padding-left: 20px; color: #000080; font-size: 26px; margin-bottom: 20px; font-weight: 700;">
-            Oorjjakiran</h3>
-        <p
-            style="margin-bottom: 20px; color: #555; line-height: 1.8; font-size: 16px; background: #f9f9f9; padding: 20px; border-radius: 6px; border-left: 4px solid #11823b;">
-            Oorjjakiran is one of the State Government Program initiatives that is connected to EMC and is structured
-            based
-            on race. This campaign spreads the idea that it’s necessary to take precautions when using electricity and
-            to
-            conserve energy. To convey this, we involve parents and students in this programme. usually done with a
-            specific
-            geographic location in mind.
-        </p>
-    </div>
-    <div class="oorjjakiran animate-on-scroll">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/oorjjakiran.jpg" alt="Oorjjakiran">
+        <div class="story-grid">
+            <article class="story-card animate-on-scroll">
+                <img class="story-card__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/oorjjakiran.jpg'); ?>" alt="Oorjjakiran">
+                <div>
+                    <span class="eyebrow">Featured Collaboration</span>
+                    <h3>Oorjjakiran</h3>
+                    <p>Oorjjakiran is one of the State Government program initiatives connected to EMC and structured in partnership with RACE. The campaign spreads awareness about careful electricity use and the importance of conserving energy.</p>
+                    <p>By involving both parents and students, the initiative moves beyond awareness into daily behavioral change, making the collaboration practical, educational, and community-based.</p>
+                </div>
+            </article>
+
+            <article class="surface-panel animate-on-scroll" style="padding: 32px;">
+                <span class="eyebrow">Why Collaboration Matters</span>
+                <h2 style="font-size: 3rem;">Better outcomes happen when communities, institutions, and facilitators align.</h2>
+                <p>RACE collaborations are designed to create mutual value: stronger program delivery, better reach, deeper trust, and a more sustainable model for long-term impact.</p>
+                <div class="grid-2" style="margin-top: 22px;">
+                    <div class="info-card">
+                        <h3>Shared Reach</h3>
+                        <p>Programs become more visible and more relevant when local stakeholders participate in delivery.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Shared Responsibility</h3>
+                        <p>Each collaboration is shaped around practical ownership, not one-sided execution.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
 </section>
 

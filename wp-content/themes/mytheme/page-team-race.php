@@ -1,246 +1,89 @@
 <?php
 /* Template Name: Team Race */
-get_header(); ?>
+get_header();
 
-<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
-    <div class="container">
-        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff;">Team Race</h1>
-    </div>
-</section>
+race_render_page_hero(array(
+    'title' => 'Team RACE',
+    'description' => 'The leadership, coordination, and volunteer energy that gives RACE its direction and character.',
+    'image' => get_template_directory_uri() ,
+));
 
-<div style="background-color: #11823b; padding: 15px; text-align: center; margin-bottom: 40px; border-radius: 4px;">
-</div>
+$leaders = array(
+    array('name' => 'MC Rajilan', 'role' => 'Founder & Chairman', 'image' => 'rajilan.png', 'points' => array('Trainer\'s Trainer & Mentor, DoPT, Govt of India', 'Trainer\'s Trainer & Author, JCI', '30+ years of excellence in HR training')),
+    array('name' => 'Vinod Sreedhar', 'role' => 'Vice Chairman, Training & Creative Head', 'image' => 'vinod.png', 'points' => array('Trainer\'s Trainer & Mentor, DoPT, Govt of India', 'Trainer\'s Trainer & Author, JCI', '25+ years of excellence in HR training')),
+    array('name' => 'Shaharudeen', 'role' => 'General Secretary', 'image' => 'shahrudeen.png', 'points' => array('Trainer, DoPT, Govt of India', 'National trainer of Junior Chamber International India', '20+ years of excellence in HR training')),
+    array('name' => 'Dr. S Preetha', 'role' => 'Head, Guidance & Counseling Cell', 'image' => 'preetha.png', 'points' => array('Trainer and mentor', 'Guidance and counselling leadership', '20+ years of excellence in HR training')),
+    array('name' => 'Reshmi Sreekanth, M.S.W', 'role' => 'Government Project Coordinator & Administrative Officer', 'image' => 'reshmi.png', 'points' => array('Coordinates public-facing projects', 'Supports administrative continuity', 'Bridges program design and execution')),
+    array('name' => 'Ajmal A, M.B.A', 'role' => 'Chief Director Projects', 'image' => 'ajmal.png', 'points' => array('Oversees project direction', 'Supports program scaling', 'Strengthens execution quality')),
+    array('name' => 'Noufiya N, M.Sc', 'role' => 'Chief Student Project Officer', 'image' => 'noufiya.png', 'points' => array('Connects student teams to execution', 'Supports youth-centered initiatives', 'Brings academic and project coordination together')),
+);
 
-<section class="profile-section animate-on-scroll">
-    <div class="profile-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/head/rajilan.png" alt="MC Rajilan">
-        <h3>MC Rajilan</h3>
-    </div>
-
-    <div class="profile-details">
-        <h2>Founder & Chairman</h2>
-
-        <ul>
-            <li>Trainer's Trainer & Mentor, DoPT, Govt of India</li>
-            <li>Trainer's Trainer & Author, JCI</li>
-            <li>30+ years of excellence in HR training</li>
-            <!-- <li>Founder, Research Academy for Creative Excellence (race)</li> -->
-        </ul>
-
-        <!-- <h4>Experience :</h4>
-        <ul>
-            <li>Completed education at SNMUP School Kandachira, Govt High School Anchalummood & SN College Kollam</li>
-        </ul> -->
-    </div>
-</section>
-
-<section class="profile-section animate-on-scroll">
-    <div class="profile-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/head/vinod.png" alt="Vinod Sreedhar">
-        <h3>Vinod Sreedhar</h3>
-    </div>
-
-    <div class="profile-details">
-        <h2>Vice Chairman, Training & Creative Head</h2>
-
-        <ul>
-            <li>Trainer's Trainer & Mentor, DoPT, Govt of India</li>
-            <li>Trainer's Trainer & Author, JCI</li>
-            <li>25+ years of excellence in HR training</li>
-            <!-- <li>Department of Personnel and Training (DoPT) , Govt. Of India</li>
-            <li>Designer Of Training (DOT)</li>
-            <li>Direct Trainer Skills (DTS)</li>
-            <li>Experiential Learning Tools (ELT)</li>
-            <li>Mentoring</li>
-            <li>Training Need Analysis (TNA)</li> -->
-        </ul>
-    </div>
-</section>
-
-<section class="profile-section animate-on-scroll">
-    <div class="profile-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/head/shahrudeen.png" alt="Shahrudeen Sir">
-        <h3>Shahrudeen Sir</h3>
-    </div>
-
-    <div class="profile-details">
-        <h2>General Secretary</h2>
-
-        <ul>
-            <li>Trainer, DoPT, Govt of India</li>
-            <li>National trainer of junior chamber international India.</li>
-            <li>20+ years of excellence in HR training</li>
-            <!-- <li>Gernral secretary of research academy for creative excellence</li>
-            <li>PRO& Head of programmes cell at RACE</li>
-            <li>National trainer of junior chamber international India.</li>
-            <li>Faculty of various NGO’s, state government departments and renowned Research and development
-                institutions.</li>
-            <li>Serving the society as facilitator for anti drugs workshops of government of kerala</li> -->
-        </ul>
-    </div>
-</section>
-
-<section class="profile-section animate-on-scroll">
-    <div class="profile-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/head/preetha.png" alt="Preetha Mam">
-        <h3>Dr. S Preetha</h3>
-    </div>
-
-    <div class="profile-details">
-        <h2>Head, Guidance & Counseling Cell</h2>
-
-        <ul>
-            <li>Trainer, DoPT, Govt of India</li>
-            <li>National trainer of junior chamber international India.</li>
-            <li>20+ years of excellence in HR training</li>
-        </ul>
-    </div>
-</section>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-    <div class="team-card animate-on-scroll"
-        style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-        <div style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/head/reshmi.png" alt="Reshmi Sreekanth"
-                style="max-height: 100%; max-width: 100%; object-fit: cover;">
-        </div>
-        <div style="padding: 15px;">
-            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Reshmi Sreekanth, M.S.W</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Govt Project Coordinator & Administrative Officer</p>
-        </div>
-    </div>
-
-    <div class="team-card animate-on-scroll"
-        style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-        <div style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/head/ajmal.png" alt="Ajmal A"
-                style="max-height: 100%; max-width: 100%; object-fit: cover;">
-        </div>
-        <div style="padding: 15px;">
-            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Ajmal A, M.B.A</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Chief Director Projects</p>
-            
-        </div>
-    </div>
-
-    <div class="team-card animate-on-scroll"
-        style="background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee;">
-        <div style="height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/head/noufiya.png" alt="Noufiya N"
-                style="max-height: 100%; max-width: 100%; object-fit: cover;">
-        </div>
-        <div style="padding: 15px;">
-            <h4 style="color: #c40000; margin-bottom: 5px; font-size: 16px; font-weight: 700;">Noufiya N, M.Sc</h4>
-            <p style="color: #666; font-size: 13px; margin: 0;">Chief Student Project Officer</p>
-        </div>
-    </div>
-</div>
-
-
-
-<div style="background-color: #11823b; padding: 15px; text-align: center; margin-bottom: 40px; border-radius: 4px;">
-    <h2 style="color: white; font-size: 20px; font-weight: 500; margin: 0;">Student Volunteers</h2>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-    <!-- M -->
-    <main class="container" style="padding: 60px 20px;">
-        <div class="members-images" style="column-count: 4; column-gap: 20px;">
-            <?php
-$members_path = get_template_directory() . '/images/members/';
-$members_url = get_template_directory_uri() . '/images/members/';
-
-// Get all image files
-$images = glob($members_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-
-if ($images) {
-    foreach ($images as $image) {
-        $image_name = basename($image);
-        echo '<div class="members-item animate-on-scroll" style="break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">';
-        echo '<img src="' . $members_url . $image_name . '" alt="Members Image" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">';
-        echo '</div>';
-    }
-}
-else {
-    echo '<p style="text-align: center; color: #666;">No images found in the members.</p>';
-}
+$race_teams = array(
+    array('name' => 'Arun Kumar', 'qualification' => '', 'role' => '', 'image' => 'arun-kumar.jpg'),
+    array('name' => 'Jayakrishnan', 'qualification' => '', 'role' => '', 'image' => 'jayakrishnan.jpg'),
+    array('name' => 'Althaf N', 'qualification' => '', 'role' => '', 'image' => 'althaf-n.jpg'),
+);
 ?>
+
+<section class="section-shell section-shell--compact">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <div>
+                <span class="eyebrow">Leadership Team</span>
+                <h2>A stronger, more premium presentation of the people behind the organisation.</h2>
+            </div>
         </div>
-</div>
-</div>
+        <div class="leaders-grid">
+            <?php foreach ($leaders as $leader) : ?>
+                <article class="leader-card animate-on-scroll">
+                    <img class="leader-card__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/head/' . $leader['image']); ?>" alt="<?php echo esc_attr($leader['name']); ?>">
+                    <div>
+                        <span class="leader-card__role"><?php echo esc_html($leader['role']); ?></span>
+                        <h3><?php echo esc_html($leader['name']); ?></h3>
+                        <ul>
+                            <?php foreach ($leader['points'] as $point) : ?>
+                                <li><?php echo esc_html($point); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
-<style>
-    @media (max-width: 1200px) {
-        .members-images {
-            column-count: 3 !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .members-images {
-            column-count: 2 !important;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .members-images {
-            column-count: 1 !important;
-        }
-    }
-
-    .profile-section {
-        display: flex;
-        gap: 40px;
-        padding: 40px;
-        background: #f9f9f9;
-        border-radius: 8px;
-        align-items: flex-start;
-    }
-
-    /* Left Card */
-    .profile-card {
-        background: #fff;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        width: 200px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    .profile-card img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
-
-    .profile-card h3 {
-        color: #c40000;
-        margin: 0;
-        font-size: 18px;
-    }
-
-    /* Right Content */
-    .profile-details {
-        flex: 1;
-    }
-
-    .profile-details h2 {
-        margin-top: 0;
-        font-size: 22px;
-    }
-
-    .profile-details h4 {
-        margin-top: 20px;
-        margin-bottom: 8px;
-    }
-
-    .profile-details ul {
-        margin: 0 0 15px 20px;
-    }
-
-    .profile-details li {
-        margin-bottom: 6px;
-    }
-</style>
-</main>
+<section class="section-shell section-shell--compact">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <div>
+                <span class="eyebrow">Our IT & Media Cell Team</span>
+            </div>
+        </div>
+        <div class="grid-3">
+            <?php foreach ($race_teams as $team_member) : ?>
+                <?php 
+                $is_circle_only = in_array($team_member['name'], array('Arun Kumar', 'Jayakrishnan', 'Althaf N'));
+                ?>
+                <?php if ($is_circle_only) : ?>
+                    <article class="circle-member animate-on-scroll" style="text-align: center;">
+                        <img class="circle-member__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/team/' . $team_member['image']); ?>" alt="<?php echo esc_attr($team_member['name']); ?>" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px;">
+                        <h3 class="member-card__name"><?php echo esc_html($team_member['name']); ?></h3>
+                    </article>
+                <?php else : ?>
+                    <article class="member-card animate-on-scroll">
+                        <img class="member-card__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/team/' . $team_member['image']); ?>" alt="<?php echo esc_attr($team_member['name']); ?>">
+                        <div>
+                            <h3 class="member-card__name"><?php echo esc_html($team_member['name']); ?></h3>
+                            <?php if ($team_member['qualification']) : ?>
+                                <p class="member-card__role"><?php echo esc_html($team_member['qualification']); ?></p>
+                            <?php endif; ?>
+                            <p style="font-size: 0.85rem; color: var(--muted);"><?php echo esc_html($team_member['role']); ?></p>
+                        </div>
+                    </article>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>

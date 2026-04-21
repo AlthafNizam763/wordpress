@@ -1,51 +1,43 @@
 <?php
 /* Template Name: Action Plan */
-get_header(); ?>
+get_header();
 
-<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+race_render_page_hero(array(
+    'title' => 'Action Plan',
+    'description' => 'A curated hub for the initiatives, training, projects, and public-facing work that define the RACE roadmap.',
+    'image' => get_template_directory_uri() . '/images/ProjectCollaboration.jpeg',
+));
+
+$items = array(
+    array('title' => 'Ongoing & Past Events', 'text' => 'Track live opportunities and revisit flagship programs that shaped the community.', 'icon' => 'fa-calendar-check', 'url' => race_get_page_url('ongoing-events')),
+    array('title' => 'Courses & Training', 'text' => 'Explore the learning tracks built for students, trainers, professionals, and leaders.', 'icon' => 'fa-chalkboard-user', 'url' => race_get_page_url('courses-training')),
+    array('title' => 'Projects', 'text' => 'See the long-form initiatives where RACE translates ideas into sustained impact.', 'icon' => 'fa-diagram-project', 'url' => race_get_page_url('projects')),
+    array('title' => 'Day Observations', 'text' => 'Celebrate awareness campaigns, cultural observances, and public education moments.', 'icon' => 'fa-sun', 'url' => race_get_page_url('day-observations')),
+    array('title' => 'Collaborations', 'text' => 'Discover partner-led work with institutions, communities, and public stakeholders.', 'icon' => 'fa-handshake', 'url' => race_get_page_url('collaborations')),
+    array('title' => 'Features in News', 'text' => 'Browse external visibility and media moments that highlight RACE in the public sphere.', 'icon' => 'fa-newspaper', 'url' => race_get_page_url('features-news')),
+);
+?>
+
+<section class="section-shell">
     <div class="container">
-        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase;">Action Plan</h1>
-        <p style="color: #666; font-size: 18px;">Our strategic roadmap for creating impact.</p>
+        <div class="section-header animate-on-scroll">
+            <div>
+                <span class="eyebrow">Explore The Ecosystem</span>
+                <h2>Everything important, organised in one premium overview.</h2>
+            </div>
+            <p>The Action Plan page works as a directional layer, helping visitors move quickly into the part of the organisation most relevant to them.</p>
+        </div>
+        <div class="grid-3">
+            <?php foreach ($items as $item) : ?>
+                <article class="feature-card animate-on-scroll">
+                    <span class="feature-card__icon"><i class="fas <?php echo esc_attr($item['icon']); ?>"></i></span>
+                    <h3><?php echo esc_html($item['title']); ?></h3>
+                    <p><?php echo esc_html($item['text']); ?></p>
+                    <a href="<?php echo esc_url($item['url']); ?>" class="btn btn--ghost">Open Section</a>
+                </article>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
-
-<main class="container" style="padding: 60px 20px;">
-    <div class="action-plan-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
-        <div class="plan-card animate-on-scroll"
-            style="background: #fff; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-radius: 8px;">
-            <h3>Programs</h3>
-            <p>Impactful initiatives designed for change.</p>
-            <a href="<?php echo home_url('/programs'); ?>" class="btn">View Programs</a>
-        </div>
-        <div class="plan-card animate-on-scroll"
-            style="background: #fff; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-radius: 8px;">
-            <h3>Training</h3>
-            <p>Skill development and capacity building.</p>
-            <a href="<?php echo home_url('/training'); ?>" class="btn">View Training</a>
-        </div>
-        <div class="plan-card animate-on-scroll"
-            style="background: #fff; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-radius: 8px;">
-            <h3>Research</h3>
-            <p>Data-driven insights for better solutions.</p>
-            <a href="<?php echo home_url('/research'); ?>" class="btn">View Research</a>
-        </div>
-        <div class="plan-card animate-on-scroll"
-            style="background: #fff; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-radius: 8px;">
-            <h3>Project</h3>
-            <p>Collaborative projects for community growth.</p>
-            <a href="<?php echo home_url('/project'); ?>" class="btn">View Project</a>
-        </div>
-    </div>
-
-    <div class="page-content" style="margin-top: 60px;">
-        <?php
-        while (have_posts()):
-            the_post();
-            the_content();
-        endwhile;
-        ?>
-    </div>
-</main>
 
 <?php get_footer(); ?>

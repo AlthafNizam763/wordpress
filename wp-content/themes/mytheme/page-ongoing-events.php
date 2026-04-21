@@ -1,353 +1,75 @@
 <?php
 /* Template Name: Ongoing & Past Events */
-get_header(); ?>
+get_header();
 
-<style>
-    /* Integrated Styles for Events Page */
-    :root {
-        --primary-green: #11823b;
-        --secondary-bg: #f9f9f9;
-        --text-dark: #333;
-        --text-muted: #666;
-        --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        --hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    }
+race_render_page_hero(array(
+    'title' => 'Ongoing & Past Events',
+    'description' => 'A polished archive of featured programmes, milestone moments, and the energy that keeps the RACE calendar moving.',
+    'image' => get_template_directory_uri() ,
+));
 
-    /* Section Headers */
-    .section-title {
-        font-size: 32px;
-        color: var(--primary-green);
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        font-weight: 700;
-        position: relative;
-        padding-bottom: 15px;
-    }
+$featured = array(
+    array(
+        'title' => 'Race Gurukulam 2k26 in Association with IMA Kollam',
+        'date' => 'April 10-11, 2026',
+        'text' => 'A self discovery and personality transformation programme for students aged 12 to 18, designed as an immersive growth experience.',
+        'image' => get_template_directory_uri() . '/images/gurukulam26.jpeg',
+        'url' => 'https://docs.google.com/forms/d/e/1FAIpQLSdX4lwtw9ggMoNBSBJ-XphIIYLn-Cxi4ud5CfMwrlN_364WWQ/viewform?usp=publish-editor',
+    ),
+);
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 4px;
-        background-color: var(--primary-green);
-        border-radius: 2px;
-    }
+$archive = array(
+    array('date' => 'December 2025', 'title' => 'Annual Charity Gathering', 'text' => 'A reflective close to the year with community partners, supporters, and beneficiaries sharing the impact made possible together.'),
+    array('date' => 'October 2025', 'title' => 'Youth Leadership Summit', 'text' => 'A focused gathering for student leaders exploring responsibility, confidence, and the future role of youth-led change.'),
+    array('date' => 'August 2025', 'title' => 'Community Innovation Sessions', 'text' => 'A collaborative format where ideas for social good were prototyped and discussed with practical follow-through in mind.'),
+    array('date' => 'June 2025', 'title' => 'Environmental Outreach Drive', 'text' => 'A public-facing effort that combined awareness, action, and sustained follow-up around environmental responsibility.'),
+);
+?>
 
-    /* Ongoing Events - Featured Grid */
-    .events-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        margin-bottom: 80px;
-    }
-
-    .event-card {
-        background: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: var(--card-shadow);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid #eee;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .event-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--hover-shadow);
-    }
-
-    .event-image {
-        height: 220px;
-        background-color: #e0e0e0;
-        position: relative;
-    }
-
-    .event-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .event-badge {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        background-color: #e74c3c;
-        /* Red for 'Live' */
-        color: white;
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .event-content {
-        padding: 25px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .event-date {
-        color: var(--primary-green);
-        font-weight: 600;
-        font-size: 14px;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .event-title {
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 12px;
-        color: var(--text-dark);
-        line-height: 1.3;
-    }
-
-    .event-desc {
-        color: var(--text-muted);
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-        flex: 1;
-    }
-
-    .event-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: var(--primary-green);
-        color: white;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        text-align: center;
-        align-self: flex-start;
-        transition: background 0.3s ease;
-    }
-
-    .event-btn:hover {
-        background-color: #0e6b30;
-        color: white;
-    }
-
-    /* Past Events - Timeline Style */
-    .timeline-section {
-        position: relative;
-        padding: 20px 0;
-    }
-
-    /* The vertical line */
-    .timeline-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 2px;
-        background-color: #e0e0e0;
-        transform: translateX(-50%);
-    }
-
-    .timeline-item {
-        position: relative;
-        margin-bottom: 60px;
-        width: 100%;
-    }
-
-    .timeline-item::after {
-        content: '';
-        display: table;
-        clear: both;
-    }
-
-    /* Content box */
-    .timeline-content {
-        position: relative;
-        width: 45%;
-        background: #fff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: var(--card-shadow);
-        border: 1px solid #eee;
-        transition: transform 0.3s ease;
-    }
-
-    .timeline-content:hover {
-        transform: scale(1.02);
-    }
-
-    /* Timeline Dot */
-    .timeline-dot {
-        position: absolute;
-        top: 25px;
-        left: 50%;
-        width: 16px;
-        height: 16px;
-        background-color: var(--primary-green);
-        border-radius: 50%;
-        border: 3px solid #fff;
-        box-shadow: 0 0 0 3px rgba(17, 130, 59, 0.2);
-        transform: translateX(-50%);
-        z-index: 10;
-    }
-
-    /* Left and Right positioning */
-    .timeline-item:nth-child(odd) .timeline-content {
-        float: left;
-        text-align: right;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-        float: right;
-        text-align: left;
-    }
-
-    .timeline-item:nth-child(odd) .event-date {
-        justify-content: flex-end;
-    }
-
-    /* Responsive Timeline */
-    @media (max-width: 768px) {
-        .timeline-section::before {
-            left: 20px;
-        }
-
-        .timeline-item {
-            margin-bottom: 40px;
-        }
-
-        .timeline-dot {
-            left: 20px;
-        }
-
-        .timeline-content {
-            width: calc(100% - 60px);
-            float: right !important;
-            margin-left: 60px;
-            text-align: left !important;
-        }
-
-        .timeline-item:nth-child(odd) .event-date {
-            justify-content: flex-start;
-        }
-
-        .section-title {
-            font-size: 26px;
-        }
-    }
-</style>
-
-<section class="page-header animate-on-scroll" style="background-color: #f4f4f4; padding: 60px 0; text-align: center;">
+<section class="section-shell section-shell--compact">
     <div class="container">
-        <h1 style="font-size: 48px; margin-bottom: 20px; text-transform: uppercase; color: #000000ff">Ongoing & Past
-            Events</h1>
+        <div class="section-header animate-on-scroll">
+            <div>
+                <span class="eyebrow">Featured Programme</span>
+                <h2>Designed to feel current, premium, and easy to act on.</h2>
+            </div>
+        </div>
+        <div class="grid-2">
+            <?php foreach ($featured as $event) : ?>
+                <article class="story-card animate-on-scroll" style="grid-column: 1 / -1;">
+                    <img class="story-card__image" src="<?php echo esc_url($event['image']); ?>" alt="<?php echo esc_attr($event['title']); ?>">
+                    <div>
+                        <span class="leader-card__role">Featured Event</span>
+                        <h3><?php echo esc_html($event['title']); ?></h3>
+                        <p><strong style="color: var(--primary);">Scheduled:</strong> <?php echo esc_html($event['date']); ?></p>
+                        <p><?php echo esc_html($event['text']); ?></p>
+                        <a href="<?php echo esc_url($event['url']); ?>" class="btn" target="_blank" rel="noreferrer">Register Now</a>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
 
-<div class="container" style="padding: 80px 20px;">
-
-    <!-- Ongoing Events -->
-    <div class="ongoing-section">
-        <h2 class="section-title">Happening Now</h2>
-
-        <div class="events-grid">
-            <!-- Event 1 (Placeholder) -->
-            <!-- <article class="event-card animate-on-scroll">
-                <div class="event-image">
-                    <span class="event-badge">Ongoing</span> -->
-                    <!-- Placeholder color block or image -->
-                    <!-- <div
-                        style="width:100%; height:100%; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); display:flex; align-items:center; justify-content:center; color:#999;">
-                        No Image Available
-                    </div>
-                </div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar-alt"></i> Current Initiative</div>
-                    <h3 class="event-title">Community Outreach Program 2026</h3>
-                    <p class="event-desc">We are currently actively engaging with local communities to provide support
-                        and resources. Join our volunteers in making a difference today.</p>
-                    <a href="#" class="event-btn">View Details</a>
-                </div>
-            </article> -->
-
-            <!-- Event 2 (Gurukulam 2k26) -->
-            <article class="event-card animate-on-scroll">
-                <div class="event-image">
-                    <span class="event-badge" style="background-color: #f32112;">Ongoing</span>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/gurukulam26.jpeg" alt="Gurukulam 2k26" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar-alt"></i> Expected date April 10th & 11th 2026</div>
-                    <h3 class="event-title">Race Gurukulam 2k26 in Association with IMA Kollam</h3>
-                    <p class="event-desc">Self Discovery & Personality Transformation Program for the students in the age group between 12 & 18</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdX4lwtw9ggMoNBSBJ-XphIIYLn-Cxi4ud5CfMwrlN_364WWQ/viewform?usp=publish-editor" class="event-btn">Register Now</a>
-                </div>
-            </article>
+<section class="section-shell">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <div>
+                <span class="eyebrow">Archive</span>
+                <h2>Past moments that still shape the story.</h2>
+            </div>
+            <p>The archive gives the site continuity, helping visitors see that the organisation has rhythm, history, and a record of delivery.</p>
+        </div>
+        <div class="timeline-list">
+            <?php foreach ($archive as $item) : ?>
+                <article class="timeline-card animate-on-scroll">
+                    <span class="timeline-card__date"><?php echo esc_html($item['date']); ?></span>
+                    <h3><?php echo esc_html($item['title']); ?></h3>
+                    <p><?php echo esc_html($item['text']); ?></p>
+                </article>
+            <?php endforeach; ?>
         </div>
     </div>
-
-    <!-- Past Events Timeline -->
-    <div class="past-section">
-        <h2 class="section-title">Past Events Archive</h2>
-
-        <div class="timeline-section">
-
-            <!-- Timeline Item 1 -->
-            <div class="timeline-item animate-on-scroll">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="event-date"><i class="far fa-calendar-check"></i> December 2025</div>
-                    <h3 class="event-title">Annual Charity Gala</h3>
-                    <p class="event-desc">A successful evening of fundraising and celebration, bringing together donors
-                        and beneficiaries to reflect on a year of impact.</p>
-                </div>
-            </div>
-
-            <!-- Timeline Item 2 -->
-            <div class="timeline-item animate-on-scroll">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="event-date"><i class="far fa-calendar-check"></i> October 2025</div>
-                    <h3 class="event-title">Youth Leadership Summit</h3>
-                    <p class="event-desc">Over 200 student leaders gathered to discuss future challenges and
-                        opportunities in the sector. Keynote speakers inspired the next generation.</p>
-                </div>
-            </div>
-
-            <!-- Timeline Item 3 -->
-            <div class="timeline-item animate-on-scroll">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="event-date"><i class="far fa-calendar-check"></i> August 2025</div>
-                    <h3 class="event-title">Tech for Good Hackathon</h3>
-                    <p class="event-desc">Innovators and developers came together to build solutions for social
-                        problems. The winning team developed an app for food distribution.</p>
-                </div>
-            </div>
-
-            <!-- Timeline Item 4 -->
-            <div class="timeline-item animate-on-scroll">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="event-date"><i class="far fa-calendar-check"></i> June 2025</div>
-                    <h3 class="event-title">Environmental Cleanup Drive</h3>
-                    <p class="event-desc">Volunteers collected over 500kg of waste from the local beaches and parks,
-                        contributing to a cleaner and improved environment.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</div>
+</section>
 
 <?php get_footer(); ?>

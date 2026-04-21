@@ -1,241 +1,243 @@
-<footer>
+<footer class="footer">
     <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="footer-logo">
-                    <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo">
+        <div class="footer__shell">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <span class="eyebrow">Creative Excellence With Purpose</span>
+                    <h3>Building confidence, community, and meaningful transformation.</h3>
+                    <p>RACE brings together training, youth leadership, counselling, and collaborative community initiatives to create durable human impact.</p>
+                </div>
+
+                <div>
+                    <h4>Explore</h4>
+                    <div class="footer__links">
+                        <a href="<?php echo esc_url(race_get_page_url('about')); ?>">Chairman&rsquo;s Desk</a>
+                        <a href="<?php echo esc_url(race_get_page_url('team-race')); ?>">Team RACE</a>
+                        <a href="<?php echo esc_url(race_get_page_url('gallery')); ?>">Gallery</a>
+                        <a href="<?php echo esc_url(race_get_page_url('meet-our-changemakers')); ?>">Changemakers</a>
                     </div>
                 </div>
-                <p>Research Academy For Creative Excellence
-                </p>
+
+                <div>
+                    <h4>Action Plan</h4>
+                    <div class="footer__links">
+                        <a href="<?php echo esc_url(race_get_page_url('ongoing-events')); ?>">Ongoing &amp; Past Events</a>
+                        <a href="<?php echo esc_url(race_get_page_url('courses-training')); ?>">Courses &amp; Training</a>
+                        <a href="<?php echo esc_url(race_get_page_url('projects')); ?>">Projects</a>
+                        <a href="<?php echo esc_url(race_get_page_url('features-news')); ?>">Features in News</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Contact</h4>
+                    <div class="footer__links">
+                        <a href="https://maps.google.com/?q=Bhavana+Nagar+Town+Kadappakada+Kollam+691008" target="_blank" rel="noreferrer">261 Bhavana Nagar Town, Kadappakada, Kollam 691008</a>
+                        <a href="tel:+919645567295">+91 96455 67295</a>
+                        <a href="mailto:raceindianow@gmail.com">raceindianow@gmail.com</a>
+                        <a href="<?php echo esc_url(race_get_page_url('your-voice-matters')); ?>">Send a message</a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Our Solutions</h4>
-                <ul class="footer-links">
-                    <li><a href="<?php echo home_url('/#home'); ?>">Programs & Training</a></li>
-                    <li><a href="<?php echo home_url('/#services'); ?>">Research & Development</a></li>
-                    <li><a href="<?php echo home_url('/#services'); ?>">Project & Collaboration</a></li>
-                    <li><a href="<?php echo home_url('/courses-training'); ?>">Courses & Training</a></li>
-                </ul>
+
+            <div class="footer__bottom">
+                <p>&copy; <?php echo esc_html(date('Y')); ?> Research Academy for Creative Excellence. All rights reserved.</p>
+                <a href="<?php echo esc_url(home_url('/')); ?>">Back to top</a>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="<?php $p = get_page_by_path('about');
-echo $p ? get_permalink($p) : home_url('/about'); ?>">About
-                            Us</a></li>
-                    <li><a href="<?php echo home_url('/#services'); ?>">Our Services</a></li>
-                    <li><a href="<?php echo home_url('/features-news'); ?>">News & Updates</a></li>
-                    <li><a href="<?php echo home_url('/your-voice-matters'); ?>">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Get in Touch</h4>
-                <p>262 Bhavana Nagar Town,<br>Kadappakada, Kollam, 691008</p>
-                <p>+91 96455 67295<br>raceindianow@gmail.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <?php echo date('Y'); ?> Race. All rights reserved.</p>
         </div>
     </div>
 </footer>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Header Scroll Effect
-        // Smart Scroll Header
-        const header = document.getElementById('header');
-        let lastScrollY = window.scrollY;
-
-        window.addEventListener('scroll', () => {
-            if (!header) return;
-
-            const currentScrollY = window.scrollY;
-
-            // Add/remove 'scrolled' class for background style
-            if (currentScrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            // Hide/Show Logic
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling DOWN
-                header.classList.add('nav-hidden');
-            } else {
-                // Scrolling UP
-                header.classList.remove('nav-hidden');
-            }
-
-            lastScrollY = currentScrollY;
-        });
-
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Simple entrance animation for hero elements
-        const heroContent = document.querySelector('.hero-content');
-        if (heroContent) {
-            heroContent.style.opacity = '0';
-            heroContent.style.transform = 'translateY(20px)';
-            heroContent.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-
-            setTimeout(() => {
-                heroContent.style.opacity = '1';
-                heroContent.style.transform = 'translateY(0)';
-            }, 100);
-        }
-    });
-</script>
-
-<!-- WhatsApp Floating Icon -->
-<a href="https://wa.me/9645567295" target="_blank" class="whatsapp-float">
+<a href="https://wa.me/919645567295" target="_blank" rel="noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
-<!-- Image Modal HTML -->
-<div id="image-modal" class="image-modal">
-    <span class="close-modal">&times;</span>
-    <a class="prev-modal" onclick="changeImage(-1)">&#10094;</a>
-    <a class="next-modal" onclick="changeImage(1)">&#10095;</a>
-    <img class="modal-content" id="modal-image">
+
+<div class="lightbox" id="race-lightbox" aria-hidden="true">
+    <div class="lightbox__frame">
+        <button class="lightbox__close" type="button" aria-label="Close image viewer"><i class="fas fa-times"></i></button>
+        <button class="lightbox__prev" type="button" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox__image" src="" alt="">
+        <button class="lightbox__next" type="button" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</div>
+
+<div class="video-modal" id="race-video-modal" aria-hidden="true">
+    <div class="video-modal__frame">
+        <button class="video-modal__close" type="button" aria-label="Close video viewer"><i class="fas fa-times"></i></button>
+        <video controls playsinline></video>
+    </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('image-modal');
-        const modalImg = document.getElementById('modal-image');
-        const closeBtn = document.querySelector('.close-modal');
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('site-header');
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.getElementById('site-nav-links');
+    const dropdowns = document.querySelectorAll('.has-dropdown');
+    let lastScrollY = window.scrollY;
 
-        // Select all images inside the grid containers ending in "-images"
-        // Also include a generic class just in case 'gallery-image' is used in future
-        // Also excluding the logo in header/footer and icons
-        const images = document.querySelectorAll('div[class$="-images"] img, .gallery-image img');
-        let currentIndex = 0;
-        const imageList = []; // Array to store src of all scrollable images
+    const updateHeader = () => {
+        if (!header) return;
+        const current = window.scrollY;
+        header.classList.toggle('scrolled', current > 20);
+        if (current < lastScrollY && current > 120) {
+            header.classList.add('nav-hidden');
+        } else {
+            header.classList.remove('nav-hidden');
+        }
+        lastScrollY = current;
+    };
 
-        // Populate image list and add click listeners
-        // We filter to ensure we get valid images
-        images.forEach((img) => {
-            if (img.src) {
-                imageList.push(img.src);
-                // Store the index for this specific image element
-                img.dataset.index = imageList.length - 1;
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
 
-                img.addEventListener('click', function () {
-                    modal.classList.add('active');
-                    modalImg.src = this.src;
-                    currentIndex = parseInt(this.dataset.index);
-                });
-            }
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('menu-open', isOpen);
         });
 
-        // Close Modal
-        if (closeBtn) {
-            closeBtn.onclick = () => {
-                modal.classList.remove('active');
-            };
-        }
-
-        // Close on clicking outside
-        if (modal) {
-            modal.onclick = (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
-            };
-        }
-
-        // Navigation function
-        window.changeImage = (direction) => {
-            currentIndex += direction;
-            if (currentIndex >= imageList.length) {
-                currentIndex = 0;
-            } else if (currentIndex < 0) {
-                currentIndex = imageList.length - 1;
-            }
-            modalImg.src = imageList[currentIndex];
-        };
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-
-            if (e.key === 'Escape') {
-                modal.classList.remove('active');
-            } else if (e.key === 'ArrowRight') {
-                changeImage(1);
-            } else if (e.key === 'ArrowLeft') {
-                changeImage(-1);
-            }
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            });
         });
+    }
 
-        // --- Scroll Animation Observer ---
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Only animate once
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
+    dropdowns.forEach((dropdown) => {
+        const trigger = dropdown.querySelector('button');
+        if (!trigger) return;
+        trigger.addEventListener('click', () => {
+            if (window.innerWidth > 920) return;
+            const isOpen = dropdown.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', String(isOpen));
         });
-
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        const dropdowns = document.querySelectorAll('.has-dropdown');
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-                document.body.classList.toggle('no-scroll');
-            });
-        }
-
-        if (window.innerWidth <= 768) {
-            dropdowns.forEach(dropdown => {
-                const link = dropdown.querySelector('a');
-                link.addEventListener('click', (e) => {
-                    if (e.target === link || e.target.parentElement === link) {
-                        if (link.getAttribute('href') !== '#') {
-                            e.preventDefault();
-                            dropdown.classList.toggle('active');
-                        }
-                    }
-                });
-            });
-        }
     });
+
+    const observer = new IntersectionObserver((entries, activeObserver) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                activeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((element) => observer.observe(element));
+
+    const counters = document.querySelectorAll('[data-target]');
+    const counterObserver = new IntersectionObserver((entries, activeObserver) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const counter = entry.target;
+            const target = Number(counter.dataset.target || 0);
+            const suffix = counter.dataset.suffix || '';
+            const start = performance.now();
+            const duration = 1400;
+
+            const tick = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = Math.floor(target * eased) + suffix;
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    counter.textContent = target + suffix;
+                }
+            };
+
+            requestAnimationFrame(tick);
+            activeObserver.unobserve(counter);
+        });
+    }, { threshold: 0.45 });
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    const lightbox = document.getElementById('race-lightbox');
+    const lightboxImage = lightbox ? lightbox.querySelector('.lightbox__image') : null;
+    const lightboxLinks = Array.from(document.querySelectorAll('[data-lightbox-group]'));
+    let currentIndex = 0;
+    let currentGroup = '';
+
+    const getGroupLinks = () => lightboxLinks.filter((item) => item.dataset.lightboxGroup === currentGroup);
+    const renderLightbox = (index) => {
+        const groupLinks = getGroupLinks();
+        if (!groupLinks.length || !lightboxImage) return;
+        currentIndex = (index + groupLinks.length) % groupLinks.length;
+        const currentItem = groupLinks[currentIndex];
+        lightboxImage.src = currentItem.href;
+        lightboxImage.alt = currentItem.querySelector('img')?.alt || 'Gallery image';
+    };
+
+    if (lightbox && lightboxImage) {
+        lightboxLinks.forEach((link) => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                currentGroup = link.dataset.lightboxGroup;
+                currentIndex = getGroupLinks().indexOf(link);
+                renderLightbox(currentIndex);
+                lightbox.classList.add('is-active');
+                document.body.classList.add('menu-open');
+            });
+        });
+
+        lightbox.querySelector('.lightbox__close').addEventListener('click', () => {
+            lightbox.classList.remove('is-active');
+            document.body.classList.remove('menu-open');
+        });
+        lightbox.querySelector('.lightbox__prev').addEventListener('click', () => renderLightbox(currentIndex - 1));
+        lightbox.querySelector('.lightbox__next').addEventListener('click', () => renderLightbox(currentIndex + 1));
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                lightbox.classList.remove('is-active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+
+    const videoModal = document.getElementById('race-video-modal');
+    const modalVideo = videoModal ? videoModal.querySelector('video') : null;
+    if (videoModal && modalVideo) {
+        const closeVideo = () => {
+            modalVideo.pause();
+            modalVideo.removeAttribute('src');
+            modalVideo.load();
+            videoModal.classList.remove('is-active');
+            document.body.classList.remove('menu-open');
+        };
+
+        document.querySelectorAll('[data-video-src]').forEach((card) => {
+            card.addEventListener('click', () => {
+                modalVideo.src = card.dataset.videoSrc;
+                modalVideo.play().catch(() => {});
+                videoModal.classList.add('is-active');
+                document.body.classList.add('menu-open');
+            });
+        });
+
+        videoModal.querySelector('.video-modal__close').addEventListener('click', closeVideo);
+        videoModal.addEventListener('click', (event) => {
+            if (event.target === videoModal) closeVideo();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                lightbox?.classList.remove('is-active');
+                if (videoModal.classList.contains('is-active')) closeVideo();
+                document.body.classList.remove('menu-open');
+            }
+            if (lightbox?.classList.contains('is-active')) {
+                if (event.key === 'ArrowLeft') renderLightbox(currentIndex - 1);
+                if (event.key === 'ArrowRight') renderLightbox(currentIndex + 1);
+            }
+        });
+    }
+});
 </script>
 
 <?php wp_footer(); ?>
 </body>
-
 </html>
