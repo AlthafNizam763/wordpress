@@ -4,8 +4,20 @@ function race_theme_scripts()
 {
     wp_enqueue_style('race-style', get_stylesheet_uri(), array(), filemtime(get_stylesheet_directory() . '/style.css'));
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', array(), '6.5.2');
+    
+    // Enqueue Firebase fetch module
+    wp_enqueue_script('firebase-fetch', get_template_directory_uri() . '/js/firebase-fetch.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'race_theme_scripts');
+
+// Add type="module" to scripts that need it
+function race_add_type_attribute($tag, $handle, $src) {
+    if ('firebase-fetch' === $handle) {
+        $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+    return $tag;
+}
+add_filter('script_loader_tag', 'race_add_type_attribute', 10, 3);
 
 function race_theme_setup()
 {

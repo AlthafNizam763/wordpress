@@ -69,7 +69,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
+    const header = document.getElementById('header') || document.getElementById('site-header');
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const navLinks = document.getElementById('site-nav-links');
     const dropdowns = document.querySelectorAll('.has-dropdown');
@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // IntersectionObserver for scroll animations
     const observer = new IntersectionObserver((entries, activeObserver) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -127,7 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.14 });
 
-    document.querySelectorAll('.animate-on-scroll').forEach((element) => observer.observe(element));
+    // Expose dynamic observation helpers globally
+    window.raceObserveElements = () => {
+        document.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach((element) => {
+            observer.observe(element);
+        });
+    };
+
+    window.raceObserveElements();
 
     const counters = document.querySelectorAll('[data-target]');
     const counterObserver = new IntersectionObserver((entries, activeObserver) => {
@@ -158,30 +166,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lightbox = document.getElementById('race-lightbox');
     const lightboxImage = lightbox ? lightbox.querySelector('.lightbox__image') : null;
-    const lightboxLinks = Array.from(document.querySelectorAll('[data-lightbox-group]'));
     let currentIndex = 0;
     let currentGroup = '';
 
-    const getGroupLinks = () => lightboxLinks.filter((item) => item.dataset.lightboxGroup === currentGroup);
+    const getGroupLinks = () => Array.from(document.querySelectorAll(`[data-lightbox-group="${currentGroup}"]`));
     const renderLightbox = (index) => {
         const groupLinks = getGroupLinks();
         if (!groupLinks.length || !lightboxImage) return;
         currentIndex = (index + groupLinks.length) % groupLinks.length;
         const currentItem = groupLinks[currentIndex];
-        lightboxImage.src = currentItem.href;
+        lightboxImage.src = currentItem.href || currentItem.getAttribute('href');
         lightboxImage.alt = currentItem.querySelector('img')?.alt || 'Gallery image';
     };
 
     if (lightbox && lightboxImage) {
-        lightboxLinks.forEach((link) => {
-            link.addEventListener('click', (event) => {
+        // Event delegation for lightbox clicks
+        document.body.addEventListener('click', (event) => {
+            const link = event.target.closest('[data-lightbox-group]');
+            if (link) {
                 event.preventDefault();
                 currentGroup = link.dataset.lightboxGroup;
-                currentIndex = getGroupLinks().indexOf(link);
+                const groupLinks = getGroupLinks();
+                currentIndex = groupLinks.indexOf(link);
                 renderLightbox(currentIndex);
                 lightbox.classList.add('is-active');
                 document.body.classList.add('menu-open');
-            });
+            }
         });
 
         lightbox.querySelector('.lightbox__close').addEventListener('click', () => {
@@ -209,13 +219,15 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('menu-open');
         };
 
-        document.querySelectorAll('[data-video-src]').forEach((card) => {
-            card.addEventListener('click', () => {
+        // Event delegation for video modal clicks
+        document.body.addEventListener('click', (event) => {
+            const card = event.target.closest('[data-video-src]');
+            if (card) {
                 modalVideo.src = card.dataset.videoSrc;
                 modalVideo.play().catch(() => {});
                 videoModal.classList.add('is-active');
                 document.body.classList.add('menu-open');
-            });
+            }
         });
 
         videoModal.querySelector('.video-modal__close').addEventListener('click', closeVideo);

@@ -7,22 +7,6 @@ race_render_page_hero(array(
     'description' => 'The leadership, coordination, and volunteer energy that gives RACE its direction and character.',
     'image' => get_template_directory_uri() ,
 ));
-
-$leaders = array(
-    array('name' => 'MC Rajilan', 'role' => 'Founder & Chairman', 'image' => 'rajilan.png', 'points' => array('Trainer\'s Trainer & Mentor, DoPT, Govt of India', 'Trainer\'s Trainer & Author, JCI', '30+ years of excellence in HR training')),
-    array('name' => 'Vinod Sreedhar', 'role' => 'Vice Chairman, Training & Creative Head', 'image' => 'vinod.png', 'points' => array('Trainer\'s Trainer & Mentor, DoPT, Govt of India', 'Trainer\'s Trainer & Author, JCI', '25+ years of excellence in HR training')),
-    array('name' => 'Shaharudeen', 'role' => 'General Secretary', 'image' => 'shahrudeen.png', 'points' => array('Trainer, DoPT, Govt of India', 'National trainer of Junior Chamber International India', '20+ years of excellence in HR training')),
-    array('name' => 'Dr. S Preetha', 'role' => 'Head, Guidance & Counseling Cell', 'image' => 'preetha.png', 'points' => array('Trainer and mentor', 'Guidance and counselling leadership', '20+ years of excellence in HR training')),
-    array('name' => 'Reshmi Sreekanth, M.S.W', 'role' => 'Government Project Coordinator & Administrative Officer', 'image' => 'reshmi.png', 'points' => array('Coordinates public-facing projects', 'Supports administrative continuity', 'Bridges program design and execution')),
-    array('name' => 'Ajmal A, M.B.A', 'role' => 'Chief Director Projects', 'image' => 'ajmal.png', 'points' => array('Oversees project direction', 'Supports program scaling', 'Strengthens execution quality')),
-    array('name' => 'Noufiya N, M.Sc', 'role' => 'Chief Student Project Officer', 'image' => 'noufiya.png', 'points' => array('Connects student teams to execution', 'Supports youth-centered initiatives', 'Brings academic and project coordination together')),
-);
-
-$race_teams = array(
-    array('name' => 'Arun Kumar', 'qualification' => '', 'role' => '', 'image' => 'arun-kumar.jpg'),
-    array('name' => 'Jayakrishnan', 'qualification' => '', 'role' => '', 'image' => 'jayakrishnan.jpg'),
-    array('name' => 'Althaf N', 'qualification' => '', 'role' => '', 'image' => 'althaf-n.jpg'),
-);
 ?>
 
 <section class="section-shell section-shell--compact">
@@ -33,21 +17,8 @@ $race_teams = array(
                 <h2>A stronger, more premium presentation of the people behind the organisation.</h2>
             </div>
         </div>
-        <div class="leaders-grid">
-            <?php foreach ($leaders as $leader) : ?>
-                <article class="leader-card animate-on-scroll">
-                    <img class="leader-card__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/head/' . $leader['image']); ?>" alt="<?php echo esc_attr($leader['name']); ?>">
-                    <div>
-                        <span class="leader-card__role"><?php echo esc_html($leader['role']); ?></span>
-                        <h3><?php echo esc_html($leader['name']); ?></h3>
-                        <ul>
-                            <?php foreach ($leader['points'] as $point) : ?>
-                                <li><?php echo esc_html($point); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </article>
-            <?php endforeach; ?>
+        <div class="leaders-grid" id="leaders-container">
+            <p class="empty-state">Loading leadership team...</p>
         </div>
     </div>
 </section>
@@ -59,31 +30,71 @@ $race_teams = array(
                 <span class="eyebrow">Our IT & Media Cell Team</span>
             </div>
         </div>
-        <div class="grid-3">
-            <?php foreach ($race_teams as $team_member) : ?>
-                <?php 
-                $is_circle_only = in_array($team_member['name'], array('Arun Kumar', 'Jayakrishnan', 'Althaf N'));
-                ?>
-                <?php if ($is_circle_only) : ?>
-                    <article class="circle-member animate-on-scroll" style="text-align: center;">
-                        <img class="circle-member__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/team/' . $team_member['image']); ?>" alt="<?php echo esc_attr($team_member['name']); ?>" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px;">
-                        <h3 class="member-card__name"><?php echo esc_html($team_member['name']); ?></h3>
-                    </article>
-                <?php else : ?>
-                    <article class="member-card animate-on-scroll">
-                        <img class="member-card__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/team/' . $team_member['image']); ?>" alt="<?php echo esc_attr($team_member['name']); ?>">
-                        <div>
-                            <h3 class="member-card__name"><?php echo esc_html($team_member['name']); ?></h3>
-                            <?php if ($team_member['qualification']) : ?>
-                                <p class="member-card__role"><?php echo esc_html($team_member['qualification']); ?></p>
-                            <?php endif; ?>
-                            <p style="font-size: 0.85rem; color: var(--muted);"><?php echo esc_html($team_member['role']); ?></p>
-                        </div>
-                    </article>
-                <?php endif; ?>
-            <?php endforeach; ?>
+        <div class="grid-3" id="it-team-container">
+            <p class="empty-state">Loading IT & Media cell team...</p>
         </div>
     </div>
 </section>
+
+<script type="module">
+    import { subscribeToAllCollections } from '<?php echo get_template_directory_uri(); ?>/js/firebase-fetch.js';
+
+    const leadersContainer = document.getElementById('leaders-container');
+    const itContainer = document.getElementById('it-team-container');
+
+    const getImageUrl = (img) => {
+        if (!img) return '<?php echo get_template_directory_uri(); ?>/images/bg.jpg';
+        if (img.startsWith('http://') || img.startsWith('https://')) return img;
+        return `http://localhost:3000${img}`;
+    };
+
+    subscribeToAllCollections((data) => {
+        const team = data.team_members || [];
+
+        const leaders = team.filter(member => member.type === 'leader');
+        const itTeam = team.filter(member => member.type === 'it');
+
+        // Render Leaders
+        if (leaders.length === 0) {
+            leadersContainer.innerHTML = '<p class="empty-state">No leadership members listed.</p>';
+        } else {
+            leadersContainer.innerHTML = leaders.map(leader => {
+                const bioLines = leader.description ? leader.description.split('\n').filter(l => l.trim()) : [];
+                const bioHtml = bioLines.length > 0 
+                    ? `<ul>${bioLines.map(line => `<li>${line}</li>`).join('')}</ul>`
+                    : '';
+
+                return `
+                    <article class="leader-card animate-on-scroll">
+                        <img class="leader-card__image" src="${getImageUrl(leader.image)}" alt="${leader.name || 'Leader Image'}">
+                        <div>
+                            <span class="leader-card__role">${leader.role || 'Leader'}</span>
+                            <h3>${leader.name || 'Untitled Leader'}</h3>
+                            ${bioHtml}
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Render IT / Media Team
+        if (itTeam.length === 0) {
+            itContainer.innerHTML = '<p class="empty-state">No IT & Media cell members listed.</p>';
+        } else {
+            itContainer.innerHTML = itTeam.map(member => `
+                <article class="circle-member animate-on-scroll" style="text-align: center;">
+                    <img class="circle-member__image" src="${getImageUrl(member.image)}" alt="${member.name || 'Member Image'}" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px;">
+                    <h3 class="member-card__name">${member.name || 'Untitled Member'}</h3>
+                    <p style="font-size: 0.85rem; color: var(--muted);">${member.role || ''}</p>
+                </article>
+            `).join('');
+        }
+
+        // Trigger animations for newly added items
+        if (window.raceObserveElements) {
+            window.raceObserveElements();
+        }
+    });
+</script>
 
 <?php get_footer(); ?>

@@ -400,18 +400,9 @@ body.home .site-header__bar {
     font-size: 11px;
     color: #aaa;
 }
-body.home .site-logo__title,
-body.home .site-logo__subtitle,
-body.home .nav-links a,
-body.home .nav-links button {
-    color: rgba(255,255,255,0.92);
-}
-body.home .nav-links a:hover,
-body.home .nav-links button:hover,
-body.home .nav-links .is-active,
-body.home .nav-links .current {
-    color: #17e27c;
-    background: rgba(255,255,255,0.08);
+.site-logo__title,
+.site-logo__subtitle {
+    color: rgba(236, 111, 9, 0.92);
 }
 .site-nav { display: flex; align-items: center; gap: 18px; }
 .nav-links { display: flex; align-items: center; gap: 6px; }
@@ -424,12 +415,12 @@ body.home .nav-links .current {
     border: 0;
     border-radius: 999px;
     background: transparent;
-    color: var(--text);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 0.92rem;
     font-weight: 800;
     cursor: pointer;
 }
-.nav-links a:hover, .nav-links button:hover, .nav-links .is-active, .nav-links .current { color: var(--primary); background: var(--primary-soft); }
+.nav-links a:hover, .nav-links button:hover, .nav-links .is-active, .nav-links .current { color: #dfe217; background: rgba(255,255,255,0.08); }
 .has-dropdown > button::after {
     content: '\f078';
     font-family: 'Font Awesome 6 Free';
@@ -1072,13 +1063,10 @@ body.home .btn--header-secondary {
         align-items: stretch;
         padding: 18px;
         border-radius: 28px;
-        background: rgba(255,252,247,0.96);
+        background: rgba(8, 18, 15, 0.96);
         box-shadow: var(--shadow-card);
         max-height: calc(100vh - 120px);
         overflow-y: auto;
-    }
-    body.home .nav-links {
-        background: rgba(8, 18, 15, 0.96);
     }
     .nav-links.active { display: flex; }
     .nav-links a, .nav-links button { width: 100%; justify-content: space-between; border-radius: 18px; }

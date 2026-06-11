@@ -12,15 +12,9 @@ race_render_page_hero(array(
 <section class="section-shell">
     <div class="container">
         <div class="story-grid">
-            <article class="story-card animate-on-scroll">
-                <img class="story-card__image" src="<?php echo esc_url(get_template_directory_uri() . '/images/oorjjakiran.jpg'); ?>" alt="Oorjjakiran">
-                <div>
-                    <span class="eyebrow">Featured Collaboration</span>
-                    <h3>Oorjjakiran</h3>
-                    <p>Oorjjakiran is one of the State Government program initiatives connected to EMC and structured in partnership with RACE. The campaign spreads awareness about careful electricity use and the importance of conserving energy.</p>
-                    <p>By involving both parents and students, the initiative moves beyond awareness into daily behavioral change, making the collaboration practical, educational, and community-based.</p>
-                </div>
-            </article>
+            <div id="collaborations-container" style="display: contents;">
+                <p class="empty-state">Loading collaborations...</p>
+            </div>
 
             <article class="surface-panel animate-on-scroll" style="padding: 32px;">
                 <span class="eyebrow">Why Collaboration Matters</span>
@@ -40,5 +34,48 @@ race_render_page_hero(array(
         </div>
     </div>
 </section>
+
+<script type="module">
+    import { subscribeToAllCollections } from '<?php echo get_template_directory_uri(); ?>/js/firebase-fetch.js';
+
+    const collaborationsContainer = document.getElementById('collaborations-container');
+
+    const getImageUrl = (images) => {
+        if (!images) return '<?php echo get_template_directory_uri(); ?>/images/bg.jpg';
+        if (Array.isArray(images)) {
+            if (images.length === 0) return '<?php echo get_template_directory_uri(); ?>/images/bg.jpg';
+            return getImageUrl(images[0]);
+        }
+        if (typeof images === 'string') {
+            if (images.startsWith('http://') || images.startsWith('https://')) return images;
+            return `http://localhost:3000${images}`;
+        }
+        return '<?php echo get_template_directory_uri(); ?>/images/bg.jpg';
+    };
+
+    subscribeToAllCollections((data) => {
+        const collaborations = data.collaborations || [];
+
+        if (collaborations.length === 0) {
+            collaborationsContainer.innerHTML = '<p class="empty-state">No collaborations found.</p>';
+        } else {
+            collaborationsContainer.innerHTML = collaborations.map(item => `
+                <article class="story-card animate-on-scroll">
+                    <img class="story-card__image" src="${getImageUrl(item.images)}" alt="${item.title || 'Collaboration Image'}">
+                    <div>
+                        <span class="eyebrow">Featured Collaboration</span>
+                        <h3>${item.title || 'Untitled Collaboration'}</h3>
+                        <p>${item.description || ''}</p>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Trigger animations for newly added items
+        if (window.raceObserveElements) {
+            window.raceObserveElements();
+        }
+    });
+</script>
 
 <?php get_footer(); ?>
