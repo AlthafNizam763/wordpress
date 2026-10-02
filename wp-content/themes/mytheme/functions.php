@@ -10,6 +10,7 @@ function race_theme_scripts()
 }
 add_action('wp_enqueue_scripts', 'race_theme_scripts');
 
+
 // Add type="module" to scripts that need it
 function race_add_type_attribute($tag, $handle, $src) {
     if ('firebase-fetch' === $handle) {
