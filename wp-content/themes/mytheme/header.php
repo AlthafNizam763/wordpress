@@ -21,8 +21,8 @@
                     <div class="logo">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo">
                         <div class="brand-text">
-                            <span class="red-letter">r</span>esearch academy for<br>
-                            creative excellence
+                            <span class="red-letter">r</span><span class="green-text">esearch academy for<br>
+                            creative excellence</span>
                         </div>
                     </div>
                 </a>
