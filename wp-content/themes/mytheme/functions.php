@@ -97,11 +97,17 @@ function race_get_first_image_url($folder_name, $fallback = '')
 
 function race_render_page_hero($args = array())
 {
+    $post_id = get_the_ID();
+    $cms_media = function_exists('race_cms_get_post_media') ? race_cms_get_post_media($post_id) : null;
+    $default_image = ($cms_media && $cms_media['type'] !== 'video')
+        ? $cms_media['url']
+        : trailingslashit(get_template_directory_uri()) . 'images/bg.jpg';
+
     $defaults = array(
         'eyebrow' => 'Research Academy for Creative Excellence',
         'title' => get_the_title(),
         'description' => '',
-        'image' => trailingslashit(get_template_directory_uri()) . 'images/bg.jpg',
+        'image' => $default_image,
         'align' => 'center',
     );
 
